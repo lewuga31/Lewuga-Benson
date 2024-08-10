@@ -62,7 +62,7 @@ body {
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #000 99.99%, #0000 0),
         #000;
     border-radius: 100% / calc(var(--r) * 2);
-    position: relative;
+    position: absolute;
     margin: 0 auto;
     transition: background 0.3s ease; /* Smooth transition for color change */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
