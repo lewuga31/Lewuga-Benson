@@ -59,7 +59,7 @@ body {
 .cylinder {
     --r: 20px;
     width: 100px;
-    height: 300px;
+    height: 500px;
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #000 99.99%, #0000 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #000 99.99%, #0000 0),
