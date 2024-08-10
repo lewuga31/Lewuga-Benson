@@ -15,7 +15,7 @@ body {
     position: sticky;
     top: 0;
     text-align: center;
-    margin-top: 0; /* Ensure no margin is pushing it down */
+    margin-top: 0;
 }
 
 .hook {
@@ -35,13 +35,13 @@ body {
 
 @keyframes sway {
     0% {
-        transform: rotate(-10deg); /* Start at left */
+        transform: rotate(-10deg);
     }
     50% {
-        transform: rotate(10deg); /* Move to right */
+        transform: rotate(10deg);
     }
     100% {
-        transform: rotate(-10deg); /* Return to left */
+        transform: rotate(-10deg);
     }
 }
 
@@ -49,36 +49,38 @@ body {
     width: 2px;
     height: 200px;
     background-color: #000;
-    position: relative;
-    z-index: 2; /* Ensure the string is on top */
+    position: absolute;
+    top: 0;
+    z-index: 2;
 }
 
 .cylinder {
-    --r: 20px; /* Curve size */
-    width: 100px; /* Scaled down diameter for display purposes */
-    height: 300px; /* Scaled down height (3 times the diameter) */
+    --r: 20px;
+    width: 100px;
+    height: 300px;
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #000 99.99%, #0000 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #000 99.99%, #0000 0),
         #000;
     border-radius: 100% / calc(var(--r) * 2);
     position: absolute;
+    top: 200px;
     margin: 0 auto;
-    transition: background 0.3s ease; /* Smooth transition for color change */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Add reflection */
 .cylinder::after {
     content: '';
     position: absolute;
-    bottom: -150px; /* Adjust according to the height of the reflection */
+    bottom: -150px;
     left: 0;
     width: 100%;
-    height: 150px; /* Height of the reflection */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)); /* Gradient for reflection */
+    height: 150px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
     transform: scaleY(-1);
-    opacity: 0.5; /* Transparency of the reflection */
+    opacity: 0.5;
 }
 
 /* Hover effect for cylinder */
@@ -86,16 +88,16 @@ body {
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #374024 99.99%, #374024 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #374024 99.99%, #374024 0),
-        #374024; /* Change background color to #374024 on hover */
+        #374024;
 }
 
 .content {
     position: absolute;
-    top: 30px; /* Add margin to avoid content overlapping with fixed header */
+    top: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    left: 20px; /* Adjust this value to move the content closer or further from the cylinder */
+    left: 20px;
 }
 
 .intro {
@@ -108,7 +110,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     margin-top: 20px;
-    gap: 10px; /* Space between project paragraphs */
+    gap: 10px;
 }
 
 a {
@@ -124,26 +126,28 @@ a:hover {
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
     .cylinder {
-        width: 60px; /* Smaller diameter for tablets */
-        height: 180px; /* Smaller height for tablets */
+        width: 60px;
+        height: 180px;
+        top: 80px;
     }
 
     .string {
-        height: 80px; /* Adjust string length for tablets */
+        height: 80px;
     }
 }
 
 @media (max-width: 480px) {
     .cylinder {
-        width: 50px; /* Smaller diameter for mobile devices */
-        height: 150px; /* Smaller height for mobile devices */
+        width: 50px;
+        height: 150px;
+        top: 60px;
     }
 
     .string {
-        height: 60px; /* Adjust string length for mobile devices */
+        height: 60px;
     }
 
     .content {
-        margin-left: 10px; /* Reduce margin for smaller screens */
+        margin-left: 10px;
     }
 }
