@@ -11,7 +11,7 @@
         <div class="hook"></div>
         <div class="string-container">
             <div class="string"></div>
-            <div class="cylinder"></div>
+            <div id="cylinder-container"></div> <!-- Container for the 3D model -->
         </div>
     </div>
     <div class="content">
@@ -27,5 +27,69 @@
             <p class="contact1">Contact me: <a href="mailto:lewuga31@gmail.com">lewuga31@gmail.com</a></p>
         </div>
     </div>
+
+    <!-- Include Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Include GLTFLoader -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Three.js Setup -->
+    <script>
+        // Basic Three.js setup
+        const container = document.getElementById('cylinder-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // Soft white light
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Softer directional light
+        directionalLight.position.set(0, 1, 0).normalize();
+        scene.add(directionalLight);
+
+        // Load the GLTF model
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+    'oil_barrel.glb', // Replace with the path to your model
+    function (gltf) {
+        const model = gltf.scene;
+
+        // Adjust the position of the model
+        model.position.set(0, -1.6, 0); // x, y, z coordinates
+
+        scene.add(model);
+    },
+    undefined,
+    function (error) {
+        console.error(error);
+    }
+);
+
+
+        // Position the camera
+        camera.position.z = 5;
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', function () {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+    </script>
 </body>
 </html>
+
