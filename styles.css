@@ -26,7 +26,8 @@ body {
 }
 
 .string-container {
-    display: absolute;
+    position: absolute;
+    display: flex;
     flex-direction: column;
     align-items: center;
     animation: sway 3s ease-in-out infinite;
