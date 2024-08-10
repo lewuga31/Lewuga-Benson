@@ -64,7 +64,7 @@ body {
         #000;
     border-radius: 100% / calc(var(--r) * 2);
     position: absolute;
-    top: 200px;
+    top: 400px;
     margin: 0 auto;
     transition: background 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
