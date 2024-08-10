@@ -26,11 +26,12 @@ body {
 }
 
 .string-container {
-    display: flex;
+    display: absolute;
     flex-direction: column;
     align-items: center;
     animation: sway 3s ease-in-out infinite;
     transform-origin: top center;
+    height: 100;
 }
 
 @keyframes sway {
@@ -47,7 +48,7 @@ body {
 
 .string {
     width: 2px;
-    height: 400px;
+    height: 200px;
     background-color: #000;
     position: absolute;
     top: 0;
