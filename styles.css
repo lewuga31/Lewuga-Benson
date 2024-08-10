@@ -8,7 +8,7 @@ body {
 }
 
 .contact1 {
-    border: solid #000000;
+    border: solid black;
 }
 
 .container {
@@ -47,10 +47,8 @@ body {
 
 .string {
     width: 2px;
-    height: 250px;
+    height: 100px;
     background-color: #000;
-    position: absolute;
-    z-index: 2; /* Ensure the string is on top */
 }
 
 .cylinder {
