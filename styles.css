@@ -15,7 +15,7 @@ body {
     position: sticky;
     top: 0;
     text-align: center;
-    margin-top: 0;
+    margin-top: 0; /* Ensure no margin is pushing it down */
 }
 
 .hook {
@@ -26,24 +26,22 @@ body {
 }
 
 .string-container {
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     animation: sway 3s ease-in-out infinite;
     transform-origin: top center;
-    height: 100;
 }
 
 @keyframes sway {
     0% {
-        transform: rotate(-10deg);
+        transform: rotate(-10deg); /* Start at left */
     }
     50% {
-        transform: rotate(10deg);
+        transform: rotate(10deg); /* Move to right */
     }
     100% {
-        transform: rotate(-10deg);
+        transform: rotate(-10deg); /* Return to left */
     }
 }
 
@@ -51,38 +49,36 @@ body {
     width: 2px;
     height: 200px;
     background-color: #000;
-    position: absolute;
-    top: 0;
-    z-index: 2;
+    position: relative;
+    z-index: 2; /* Ensure the string is on top */
 }
 
 .cylinder {
-    --r: 20px;
-    width: 100px;
-    height: 500px;
+    --r: 20px; /* Curve size */
+    width: 100px; /* Scaled down diameter for display purposes */
+    height: 300px; /* Scaled down height (3 times the diameter) */
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #000 99.99%, #0000 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #000 99.99%, #0000 0),
         #000;
     border-radius: 100% / calc(var(--r) * 2);
     position: absolute;
-    top: 400px;
     margin: 0 auto;
-    transition: background 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease; /* Smooth transition for color change */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
 }
 
 /* Add reflection */
 .cylinder::after {
     content: '';
     position: absolute;
-    bottom: -150px;
+    bottom: -150px; /* Adjust according to the height of the reflection */
     left: 0;
     width: 100%;
-    height: 150px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    height: 150px; /* Height of the reflection */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)); /* Gradient for reflection */
     transform: scaleY(-1);
-    opacity: 0.5;
+    opacity: 0.5; /* Transparency of the reflection */
 }
 
 /* Hover effect for cylinder */
@@ -90,16 +86,16 @@ body {
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #374024 99.99%, #374024 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #374024 99.99%, #374024 0),
-        #374024;
+        #374024; /* Change background color to #374024 on hover */
 }
 
 .content {
     position: absolute;
-    top: 30px;
+    top: 30px; /* Add margin to avoid content overlapping with fixed header */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    left: 20px;
+    left: 20px; /* Adjust this value to move the content closer or further from the cylinder */
 }
 
 .intro {
@@ -112,7 +108,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     margin-top: 20px;
-    gap: 10px;
+    gap: 10px; /* Space between project paragraphs */
 }
 
 a {
@@ -128,28 +124,26 @@ a:hover {
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
     .cylinder {
-        width: 60px;
-        height: 180px;
-        top: 80px;
+        width: 60px; /* Smaller diameter for tablets */
+        height: 180px; /* Smaller height for tablets */
     }
 
     .string {
-        height: 80px;
+        height: 80px; /* Adjust string length for tablets */
     }
 }
 
 @media (max-width: 480px) {
     .cylinder {
-        width: 50px;
-        height: 150px;
-        top: 60px;
+        width: 50px; /* Smaller diameter for mobile devices */
+        height: 150px; /* Smaller height for mobile devices */
     }
 
     .string {
-        height: 60px;
+        height: 60px; /* Adjust string length for mobile devices */
     }
 
     .content {
-        margin-left: 10px;
+        margin-left: 10px; /* Reduce margin for smaller screens */
     }
 }
