@@ -142,11 +142,11 @@ a:hover {
     .cylinder {
         width: 50px;
         height: 150px;
-        top: 60px;
+        top: 200px;
     }
 
     .string {
-        height: 100px;
+        height: 60px;
     }
 
     .content {
