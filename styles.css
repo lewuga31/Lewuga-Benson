@@ -47,7 +47,7 @@ body {
 
 .string {
     width: 2px;
-    height: 200px;
+    height: 500px;
     background-color: #000;
     position: relative;
     z-index: 2; /* Ensure the string is on top */
@@ -140,7 +140,7 @@ a:hover {
     }
 
     .string {
-        height: 60px; /* Adjust string length for mobile devices */
+        height: 365px; /* Adjust string length for mobile devices */
     }
 
     .content {
