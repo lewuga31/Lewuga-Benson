@@ -16,6 +16,8 @@ body {
     top: 0;
     text-align: center;
     margin-top: 0; /* Ensure no margin is pushing it down */
+    position: absolute; 
+    height: 200px; /* I added this and made the height 200px to see what will happen 08/12/24 */
 }
 
 .hook {
@@ -125,7 +127,7 @@ a:hover {
 @media (max-width: 768px) {
     .cylinder {
         width: 150px; /* Smaller diameter for tablets */
-        height: 5px; /* Smaller height for tablets */
+        height: -10px; /* Smaller height for tablets */
         position: absolute;
     }
 
@@ -137,12 +139,12 @@ a:hover {
 @media (max-width: 480px) {
     .cylinder {
         width: 50px; /* Smaller diameter for mobile devices */
-        height: 5px; /* Smaller height for mobile devices */
+        height: -10px; /* Smaller height for mobile devices */
         position: absolute;
     }
 
     .string {
-        height: 200px; /* Adjust string length for mobile devices */
+        height: 180px; /* Adjust string length for mobile devices */
     }
 
     .content {
