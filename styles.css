@@ -56,7 +56,7 @@ body {
 .cylinder {
     --r: 20px; /* Curve size */
     width: 100px; /* Scaled down diameter for display purposes */
-    height: 30px; /* Scaled down height (3 times the diameter) */
+    height: 5px; /* Scaled down height (3 times the diameter) */
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #000 99.99%, #0000 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #000 99.99%, #0000 0),
@@ -125,23 +125,24 @@ a:hover {
 @media (max-width: 768px) {
     .cylinder {
         width: 150px; /* Smaller diameter for tablets */
-        height: 60px; /* Smaller height for tablets */
+        height: 5px; /* Smaller height for tablets */
+        position: absolute;
     }
 
     .string {
-        height: 80px; /* Adjust string length for tablets */
+        height: 179px; /* Adjust string length for tablets */
     }
 }
 
 @media (max-width: 480px) {
     .cylinder {
         width: 50px; /* Smaller diameter for mobile devices */
-        height: 60px; /* Smaller height for mobile devices */
+        height: 5px; /* Smaller height for mobile devices */
         position: absolute;
     }
 
     .string {
-        height: 100px; /* Adjust string length for mobile devices */
+        height: 200px; /* Adjust string length for mobile devices */
     }
 
     .content {
