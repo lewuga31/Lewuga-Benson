@@ -47,7 +47,7 @@ body {
 
 .string {
     width: 2px;
-    height: 500px;
+    height: 430px;
     background-color: #000;
     position: relative;
     z-index: 2; /* Ensure the string is on top */
@@ -56,7 +56,7 @@ body {
 .cylinder {
     --r: 20px; /* Curve size */
     width: 100px; /* Scaled down diameter for display purposes */
-    height: 300px; /* Scaled down height (3 times the diameter) */
+    height: 70px; /* Scaled down height (3 times the diameter) */
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #000 99.99%, #0000 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #000 99.99%, #0000 0),
@@ -124,8 +124,8 @@ a:hover {
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
     .cylinder {
-        width: 60px; /* Smaller diameter for tablets */
-        height: 180px; /* Smaller height for tablets */
+        width: 150px; /* Smaller diameter for tablets */
+        height: 60px; /* Smaller height for tablets */
     }
 
     .string {
@@ -136,11 +136,12 @@ a:hover {
 @media (max-width: 480px) {
     .cylinder {
         width: 50px; /* Smaller diameter for mobile devices */
-        height: 150px; /* Smaller height for mobile devices */
+        height: 60px; /* Smaller height for mobile devices */
+        position: absolute;
     }
 
     .string {
-        height: 365px; /* Adjust string length for mobile devices */
+        height: 100px; /* Adjust string length for mobile devices */
     }
 
     .content {
