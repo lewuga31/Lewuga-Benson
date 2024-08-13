@@ -50,7 +50,7 @@ body {
 
 .string {
     width: 2px;
-    height: 405px;
+    height: 410px;
     background-color: #000;
     position: relative;
     z-index: 2; /* Ensure the string is on top */
