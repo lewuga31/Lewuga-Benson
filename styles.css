@@ -151,7 +151,7 @@ a:hover {
 }
 
     .string {
-        height: 289px; /* Adjust string length for tablets */
+        height: 295px; /* Adjust string length for tablets */
     }
 }
 
@@ -180,7 +180,7 @@ a:hover {
 }
 
     .string {
-        height: 289px; /* Adjust string length for mobile devices */
+        height: 300px; /* Adjust string length for mobile devices */
     }
 
     .content {
