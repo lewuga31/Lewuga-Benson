@@ -56,6 +56,23 @@ body {
     z-index: 2; /* Ensure the string is on top */
 }
 
+#cylinder-container {
+    animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(-10deg); /* Start at left */
+    }
+    50% {
+        transform: rotate(10deg); /* Move to right */
+    }
+    100% {
+        transform: rotate(-10deg); /* Return to left */
+    }
+}
+    
+
 .cylinder {
     --r: 20px; /* Curve size */
     width: 100px; /* Scaled down diameter for display purposes */
