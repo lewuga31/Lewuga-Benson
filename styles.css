@@ -111,7 +111,7 @@ a:hover {
         width: 150px; /* Smaller diameter for tablets */
         height: 2px; /* Smaller height for tablets */
         position: absolute;
-        margin: 10px; /* I added a margin for this to see what happens */
+        margin: 0 auto; /* I added a margin for this to see what happens */
     }
 
     .string {
@@ -124,7 +124,7 @@ a:hover {
         width: 50px; /* Smaller diameter for mobile devices */
         height: 2px; /* Smaller height for mobile devices */
         position: absolute;
-          margin: 10px; /* I added a margin for this to see what happens */
+          margin: 0 auto; /* I added a margin for this to see what happens */
     }
 
     .string {
