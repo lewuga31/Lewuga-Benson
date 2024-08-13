@@ -17,7 +17,7 @@ body {
     text-align: center;
     margin-top: 0; /* Ensure no margin is pushing it down */
     position: absolute; 
-    height: 200px; /* I added this and made the height 200px to see what will happen 08/12/24 */
+    height: -100px; /* I added this and made the height 200px to see what will happen 08/12/24 */
 }
 
 .hook {
@@ -33,7 +33,9 @@ body {
     align-items: center;
     animation: sway 3s ease-in-out infinite;
     transform-origin: top center;
-}
+    position: absolute; */ I added this too */
+    height: 100px; */ I add this too */
+} 
 
 @keyframes sway {
     0% {
@@ -49,7 +51,7 @@ body {
 
 .string {
     width: 2px;
-    height: 430px;
+    height: 150px;
     background-color: #000;
     position: relative;
     z-index: 2; /* Ensure the string is on top */
@@ -58,7 +60,7 @@ body {
 .cylinder {
     --r: 20px; /* Curve size */
     width: 100px; /* Scaled down diameter for display purposes */
-    height: 5px; /* Scaled down height (3 times the diameter) */
+    height: -50px; /* Scaled down height (3 times the diameter) */
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #000 99.99%, #0000 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #000 99.99%, #0000 0),
@@ -127,7 +129,7 @@ a:hover {
 @media (max-width: 768px) {
     .cylinder {
         width: 150px; /* Smaller diameter for tablets */
-        height: -10px; /* Smaller height for tablets */
+        height: -100px; /* Smaller height for tablets */
         position: absolute;
     }
 
@@ -139,7 +141,7 @@ a:hover {
 @media (max-width: 480px) {
     .cylinder {
         width: 50px; /* Smaller diameter for mobile devices */
-        height: -10px; /* Smaller height for mobile devices */
+        height: -100px; /* Smaller height for mobile devices */
         position: absolute;
     }
 
