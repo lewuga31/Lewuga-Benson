@@ -58,6 +58,7 @@ body {
 
 #cylinder-container {
     animation: swing 3s ease-in-out infinite;
+    transform-origin: top center;
 }
 
 @keyframes swing {
@@ -132,6 +133,22 @@ a:hover {
         margin: 50px; /* I added a margin for this to see what happens */
         padding: 90px; /* I adde a padding to see what it would do */
     }
+    #cylinder-container {
+    animation: swing 3s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(-10deg); /* Start at left */
+    }
+    50% {
+        transform: rotate(10deg); /* Move to right */
+    }
+    100% {
+        transform: rotate(-10deg); /* Return to left */
+    }
+}
 
     .string {
         height: 179px; /* Adjust string length for tablets */
@@ -143,9 +160,24 @@ a:hover {
         width: 50px; /* Smaller diameter for mobile devices */
         height: 2px; /* Smaller height for mobile devices */
         position: absolute;
-          margin: 50px; /* I added a margin for this to see what happens */
-        padding: 90px; /* I adde a padding to see what it would do */
+        
     }
+    #cylinder-container {
+    animation: swing 3s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(-10deg); /* Start at left */
+    }
+    50% {
+        transform: rotate(10deg); /* Move to right */
+    }
+    100% {
+        transform: rotate(-10deg); /* Return to left */
+    }
+}
 
     .string {
         height: 90px; /* Adjust string length for mobile devices */
