@@ -59,14 +59,15 @@ body {
 .cylinder {
     --r: 20px; /* Curve size */
     width: 100px; /* Scaled down diameter for display purposes */
-    height: -50px; /* Scaled down height (3 times the diameter) */
+    height: 100px; /* Scaled down height (3 times the diameter) */
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #000 99.99%, #0000 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #000 99.99%, #0000 0),
         #000;
     border-radius: 100% / calc(var(--r) * 2);
     position: absolute;
-    margin: 10px; /* I changed the margin from 0 auto to what it is now */
+    padding: 50px; /* I adde a padding to see what it would do */
+    margin: 90px; /* I changed the margin from 0 auto to what it is now */
     transition: background 0.3s ease; /* Smooth transition for color change */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
 }
@@ -109,9 +110,10 @@ a:hover {
 @media (max-width: 768px) {
     .cylinder {
         width: 150px; /* Smaller diameter for tablets */
-        height: 2px; /* Smaller height for tablets */
+        height: 100px; /* Smaller height for tablets */
         position: absolute;
-        margin: 0 auto; /* I added a margin for this to see what happens */
+        margin: 50px; /* I added a margin for this to see what happens */
+        padding: 90px; /* I adde a padding to see what it would do */
     }
 
     .string {
@@ -124,11 +126,12 @@ a:hover {
         width: 50px; /* Smaller diameter for mobile devices */
         height: 2px; /* Smaller height for mobile devices */
         position: absolute;
-          margin: 0 auto; /* I added a margin for this to see what happens */
+          margin: 50px; /* I added a margin for this to see what happens */
+        padding: 90px; /* I adde a padding to see what it would do */
     }
 
     .string {
-        height: 180px; /* Adjust string length for mobile devices */
+        height: 90px; /* Adjust string length for mobile devices */
     }
 
     .content {
