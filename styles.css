@@ -178,7 +178,7 @@ a:hover {
     }
 
     .me {
-        text-decoration: none;
+        text-decoration: underline;
     }
 
     .boxholder {
@@ -186,8 +186,8 @@ a:hover {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin-top: 40px;
-        top: 350px;
+        margin-top: 90px;
+        top: 379px;
         margin-bottom: 100px;
         height: 300px;
         z-index: 1; /* Ensures .boxholder stays below the image */
@@ -200,7 +200,7 @@ a:hover {
     #picture {
         position: absolute; /* Position relative for better control */
         max-width: 100%;
-        margin-top: 10px;
+        margin-top: 0px;
         top: 0px;
         height: auto;
         border-radius: 90%; /* Rounded corners */
@@ -269,7 +269,7 @@ a:hover {
     }
 
     .me {
-        text-decoration: none;
+        text-decoration: underline;
     }
 
     @keyframes swing {
