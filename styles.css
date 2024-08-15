@@ -104,9 +104,11 @@ body {
 .boxholder{
     position: absolute;
     top: 30px;
+    width: 300px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    margin: 20px;
 }
 
 .intro {
@@ -129,6 +131,7 @@ body {
 
 a {
     color: black;
+    tex-decoration: none;
 
 }
 
