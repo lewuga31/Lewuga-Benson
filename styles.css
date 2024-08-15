@@ -111,6 +111,10 @@ body {
     align-items: flex-start;
     flex-direction: column;
     margin: 20px;
+
+}
+
+.myname, .sentence {
     color: white;
 }
 
@@ -183,7 +187,7 @@ a:hover {
         flex-direction: column;
         align-items: flex-start;
         margin-top: 40px;
-        top: 200px;
+        top: 230px;
         margin-bottom: 100px;
         height: 300px;
         z-index: 1; /* Ensures .boxholder stays below the image */
@@ -193,6 +197,7 @@ a:hover {
         position: absolute; /* Position relative for better control */
         max-width: 100%;
         margin-top: 100px;
+        top: 10px;
         height: auto;
         border-radius: 90%; /* Rounded corners */
         z-index: 2; /* Ensures image stays above .boxholder */
@@ -233,7 +238,7 @@ a:hover {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        top: 100px;
+        top: 200px;
         margin-top: 40px;
         height: 300px;
         margin-bottom: 100px;
@@ -243,7 +248,7 @@ a:hover {
     #picture {
         position: absolute; /* Position relative for better control */
         max-width: 100%;
-        top: 30px;
+        top: 5px;
         margin-top: 100px;
         height: auto;
         border-radius: 90%; /* Rounded corners */
