@@ -111,6 +111,10 @@ body {
     margin: 20px;
 }
 
+img {
+    border-radius: 50px;
+}
+
 .intro {
     text-align: left;
     margin-top: 20px;
