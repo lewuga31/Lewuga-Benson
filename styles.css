@@ -101,6 +101,14 @@ body {
     left: 20px; /* Adjust this value to move the content closer or further from the cylinder */
 }
 
+.boxholder{
+    position: absolute;
+    top: 30px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
 .intro {
     text-align: left;
     margin-top: 20px;
