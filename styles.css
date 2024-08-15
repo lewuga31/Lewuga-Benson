@@ -106,9 +106,6 @@ body {
     margin-top: 20px;
 }
 
-.me {
-    text-decoration: underline;
-}
 
 .me:hover {
     text-decoration: underline;
