@@ -151,6 +151,10 @@ a:hover {
     color: black;
     text-decoration: underline;
 }
+
+     .me {
+        text-decoration: none;
+    }
  
 
 @keyframes swing {
@@ -186,6 +190,9 @@ a:hover {
     text-decoration: underline;
 }
 
+    .me {
+        text-decoration: none;
+    }
 
 @keyframes swing {
     0% {
