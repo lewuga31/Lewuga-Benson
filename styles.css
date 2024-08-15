@@ -106,6 +106,10 @@ body {
     margin-top: 20px;
 }
 
+.me {
+    text-decoration: underline;
+}
+
 .projects {
     display: flex;
     flex-direction: column;
@@ -116,7 +120,7 @@ body {
 
 a {
     color: black;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -136,6 +140,13 @@ a:hover {
     #cylinder-container {
     animation: swing 3s ease-in-out infinite;
     transform-origin: top center;
+}
+    a {
+    color: black;
+    text-decoration: underline;
+}
+    .me {
+    text-decoration: underline;
 }
 
 @keyframes swing {
@@ -165,6 +176,13 @@ a:hover {
     #cylinder-container {
     animation: swing 3s ease-in-out infinite;
     transform-origin: top center;
+}
+    a {
+    color: black;
+    text-decoration: underline;
+}
+    .me {
+    text-decoration: underline;
 }
 
 @keyframes swing {
