@@ -214,8 +214,9 @@ a:hover {
     }
 
     #picture {
-        position: relative; /* Position relative for better control */
+        position: absolute; /* Position relative for better control */
         max-width: 100%;
+        top: 100px;
         height: auto;
         border-radius: 90%; /* Rounded corners */
         z-index: 2; /* Ensures image stays above .boxholder */
