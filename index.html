@@ -11,14 +11,10 @@
         <div class="hook"></div>
         <div class="string-container">
             <div class="string"></div>
-        </div>
-        <div id="cylinder-container"></div>
-        <!-- New swaying text -->
-        <div class="swaying-text" onclick="window.location.href='aboutme.html'">
-            Click Here
+             <!-- Container for the 3D model -->
         </div>
     </div>
-
+    <div id="cylinder-container"></div>  <!-- Container for the 3D model I moved it into its own separate place to make it a parent-->
     <div class="content">
         <div class="intro">
             <h2>Léwuga Tata Benson, Multidisciplinary Artist</h2>
@@ -40,6 +36,7 @@
 
     <!-- Three.js Setup -->
     <script>
+        // Basic Three.js setup
         const container = document.getElementById('cylinder-container');
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -47,29 +44,37 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
-        const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // Soft white light
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Softer directional light
         directionalLight.position.set(0, 1, 0).normalize();
         scene.add(directionalLight);
 
+        // Load the GLTF model
         const loader = new THREE.GLTFLoader();
         loader.load(
-            'oil_barrel.glb',
-            function (gltf) {
-                const model = gltf.scene;
-                model.position.set(0, -1.6, 0);
-                scene.add(model);
-            },
-            undefined,
-            function (error) {
-                console.error(error);
-            }
-        );
+    'oil_barrel.glb', // Replace with the path to your model
+    function (gltf) {
+        const model = gltf.scene;
 
+        // Adjust the position of the model
+        model.position.set(0, -1.6, 0); // x, y, z coordinates
+
+        scene.add(model);
+    },
+    undefined,
+    function (error) {
+        console.error(error);
+    }
+);
+
+
+        // Position the camera
         camera.position.z = 5;
 
+        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
@@ -77,6 +82,7 @@
 
         animate();
 
+        // Handle window resize
         window.addEventListener('resize', function () {
             const width = window.innerWidth;
             const height = window.innerHeight;
