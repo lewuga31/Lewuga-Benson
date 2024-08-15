@@ -153,33 +153,34 @@ a:hover {
         height: 100px; /* Smaller height for tablets */
         position: absolute;
         margin: 50px; /* I added a margin for this to see what happens */
-        padding: 90px; /* I adde a padding to see what it would do */
+        padding: 90px; /* I added padding to see what it would do */
     }
-    #cylinder-container {
-    animation: swing 3s ease-in-out infinite;
-    transform-origin: top center;
-}
-    a {
-    color: black;
-    text-decoration: underline;
-}
 
-     .me {
+    #cylinder-container {
+        animation: swing 3s ease-in-out infinite;
+        transform-origin: top center;
+    }
+
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .me {
         text-decoration: none;
     }
- 
 
-@keyframes swing {
-    0% {
-        transform: rotate(-10deg); /* Start at left */
+    @keyframes swing {
+        0% {
+            transform: rotate(-10deg); /* Start at left */
+        }
+        50% {
+            transform: rotate(10deg); /* Move to right */
+        }
+        100% {
+            transform: rotate(-10deg); /* Return to left */
+        }
     }
-    50% {
-        transform: rotate(10deg); /* Move to right */
-    }
-    100% {
-        transform: rotate(-10deg); /* Return to left */
-    }
-}
 
     .string {
         height: 305px; /* Adjust string length for tablets */
@@ -191,48 +192,52 @@ a:hover {
         width: 50px; /* Smaller diameter for mobile devices */
         height: 2px; /* Smaller height for mobile devices */
         position: absolute;
-        
     }
+
     #cylinder-container {
-    animation: swing 3s ease-in-out infinite;
-    transform-origin: top center;
-}
+        animation: swing 3s ease-in-out infinite;
+        transform-origin: top center;
+    }
 
     .boxholder {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 40px;
-    height: 300px;
-}
+        position: relative; /* Changed to relative to allow the image to be positioned above */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 40px;
+        height: 300px;
+        z-index: 1; /* Ensures .boxholder stays below the image */
+    }
+
     #picture {
-        margin: 50px;
+        position: relative; /* Position relative for better control */
         max-width: 100%;
         height: auto;
-        border-radius: 80px;
+        border-radius: 90%; /* Rounded corners */
+        z-index: 2; /* Ensures image stays above .boxholder */
+        margin: 0 auto 20px auto; /* Center the image and add margin below it */
     }
-    
+
     a {
-    color: black;
-    text-decoration: underline;
-}
+        color: black;
+        text-decoration: underline;
+    }
 
     .me {
         text-decoration: none;
     }
 
-@keyframes swing {
-    0% {
-        transform: rotate(-10deg); /* Start at left */
+    @keyframes swing {
+        0% {
+            transform: rotate(-10deg); /* Start at left */
+        }
+        50% {
+            transform: rotate(10deg); /* Move to right */
+        }
+        100% {
+            transform: rotate(-10deg); /* Return to left */
+        }
     }
-    50% {
-        transform: rotate(10deg); /* Move to right */
-    }
-    100% {
-        transform: rotate(-10deg); /* Return to left */
-    }
-}
 
     .string {
         height: 310px; /* Adjust string length for mobile devices */
