@@ -193,6 +193,11 @@ a:hover {
         z-index: 1; /* Ensures .boxholder stays below the image */
     }
 
+    .myname, .sentence {
+    color: white;
+}
+
+
     #picture {
         position: absolute; /* Position relative for better control */
         max-width: 100%;
@@ -245,6 +250,11 @@ a:hover {
         z-index: 1; /* Ensures .boxholder stays below the image */
     }
 
+    .myname, .sentence {
+    color: white;
+}
+
+    
     #picture {
         position: absolute; /* Position relative for better control */
         max-width: 100%;
