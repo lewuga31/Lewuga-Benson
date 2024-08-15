@@ -101,9 +101,11 @@ body {
     left: 20px; /* Adjust this value to move the content closer or further from the cylinder */
 }
 
-.boxholder{
+/* Default Desktop Styles */
+.boxholder {
     position: absolute;
     top: 30px;
+    left: 20px; /* Position the boxholder on the left side */
     width: 300px;
     display: flex;
     align-items: flex-start;
@@ -115,7 +117,9 @@ img {
     border-radius: 50px;
     width: 300px;
     height: 300px;
+    margin-left: 0; /* Align the image with the left side */
 }
+
 
 .intro {
     text-align: left;
