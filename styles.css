@@ -110,6 +110,11 @@ body {
     text-decoration: underline;
 }
 
+.me:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .projects {
     display: flex;
     flex-direction: column;
@@ -145,9 +150,7 @@ a:hover {
     color: black;
     text-decoration: underline;
 }
-    .me {
-    text-decoration: underline;
-}
+ 
 
 @keyframes swing {
     0% {
@@ -181,9 +184,7 @@ a:hover {
     color: black;
     text-decoration: underline;
 }
-    .me {
-    text-decoration: underline;
-}
+
 
 @keyframes swing {
     0% {
