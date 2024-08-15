@@ -15,9 +15,8 @@ body {
     position: sticky;
     top: 0;
     text-align: center;
-    margin-top: 0; /* Ensure no margin is pushing it down */
+    margin-top: 0; 
     position: absolute; 
-    height: -100px; /* I added this and made the height 200px to see what will happen 08/12/24 */
 }
 
 .hook {
@@ -33,18 +32,17 @@ body {
     align-items: center;
     animation: sway 3s ease-in-out infinite;
     transform-origin: top center;
-    height: -100px; */ I add this too */
-} 
+}
 
 @keyframes sway {
     0% {
-        transform: rotate(-10deg); /* Start at left */
+        transform: rotate(-10deg); 
     }
     50% {
-        transform: rotate(10deg); /* Move to right */
+        transform: rotate(10deg); 
     }
     100% {
-        transform: rotate(-10deg); /* Return to left */
+        transform: rotate(-10deg); 
     }
 }
 
@@ -53,137 +51,84 @@ body {
     height: 410px;
     background-color: #000;
     position: relative;
-    z-index: 2; /* Ensure the string is on top */
+    z-index: 2;
 }
 
 #cylinder-container {
-    animation: swing 3s ease-in-out infinite;
+    animation: sway 3s ease-in-out infinite;
     transform-origin: top center;
 }
 
-@keyframes swing {
-    0% {
-        transform: rotate(-10deg); /* Start at left */
-    }
-    50% {
-        transform: rotate(10deg); /* Move to right */
-    }
-    100% {
-        transform: rotate(-10deg); /* Return to left */
-    }
-}
-    
-
 .cylinder {
-    --r: 20px; /* Curve size */
-    width: 100px; /* Scaled down diameter for display purposes */
-    height: 100px; /* Scaled down height (3 times the diameter) */
+    --r: 20px;
+    width: 100px;
+    height: 100px;
     background: 
         radial-gradient(50% var(--r) at 50% var(--r), #000 99.99%, #0000 0),
         radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #000 99.99%, #0000 0),
         #000;
     border-radius: 100% / calc(var(--r) * 2);
     position: absolute;
-    padding: 50px; /* I adde a padding to see what it would do */
-    margin: 90px; /* I changed the margin from 0 auto to what it is now */
-    transition: background 0.3s ease; /* Smooth transition for color change */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+    padding: 50px;
+    margin: 90px;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Enhanced drop shadow */
 }
 
-
-
-.content {
+/* New styles for the swaying text */
+.swaying-text {
+    animation: sway 3s ease-in-out infinite; /* Swaying with the barrel */
+    transform-origin: top center;
     position: absolute;
-    top: 30px; /* Add margin to avoid content overlapping with fixed header */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    left: 20px; /* Adjust this value to move the content closer or further from the cylinder */
-}
-
-.intro {
-    text-align: left;
-    margin-top: 20px;
-}
-
-.projects {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
-    gap: 10px; /* Space between project paragraphs */
-}
-
-a {
-    color: black;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+    top: 50%;
+    left: 120px; /* Adjust to position text next to the barrel */
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
     cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Drop shadow for text */
+}
+
+.swaying-text:hover {
+    color: #374024; /* Hover effect color */
 }
 
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
     .cylinder {
-        width: 150px; /* Smaller diameter for tablets */
-        height: 100px; /* Smaller height for tablets */
+        width: 150px; 
+        height: 100px; 
         position: absolute;
-        margin: 50px; /* I added a margin for this to see what happens */
-        padding: 90px; /* I adde a padding to see what it would do */
+        margin: 50px;
+        padding: 90px;
     }
-    #cylinder-container {
-    animation: swing 3s ease-in-out infinite;
-    transform-origin: top center;
-}
-
-@keyframes swing {
-    0% {
-        transform: rotate(-10deg); /* Start at left */
-    }
-    50% {
-        transform: rotate(10deg); /* Move to right */
-    }
-    100% {
-        transform: rotate(-10deg); /* Return to left */
-    }
-}
 
     .string {
-        height: 305px; /* Adjust string length for tablets */
+        height: 305px; 
+    }
+
+    .swaying-text {
+        left: 90px; /* Adjust text position for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .cylinder {
-        width: 50px; /* Smaller diameter for mobile devices */
-        height: 2px; /* Smaller height for mobile devices */
+        width: 50px;
+        height: 2px;
         position: absolute;
-        
     }
-    #cylinder-container {
-    animation: swing 3s ease-in-out infinite;
-    transform-origin: top center;
-}
-
-@keyframes swing {
-    0% {
-        transform: rotate(-10deg); /* Start at left */
-    }
-    50% {
-        transform: rotate(10deg); /* Move to right */
-    }
-    100% {
-        transform: rotate(-10deg); /* Return to left */
-    }
-}
 
     .string {
-        height: 310px; /* Adjust string length for mobile devices */
+        height: 310px;
     }
 
     .content {
-        margin-left: 10px; /* Reduce margin for smaller screens */
+        margin-left: 10px;
+    }
+
+    .swaying-text {
+        left: 60px; /* Adjust text position for mobile devices */
+        font-size: 16px; /* Smaller text size for mobile */
     }
 }
