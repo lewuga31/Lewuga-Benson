@@ -113,10 +113,12 @@ body {
     margin: 20px;
 }
 
+
 img {
-    border-radius: 50px;
-    width: 300px;
-    height: 300px;
+    border-radius: 90px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 50px;
     margin-left: 0; /* Align the image with the left side */
 }
 
@@ -180,6 +182,7 @@ a:hover {
         flex-direction: column;
         align-items: flex-start;
         margin-top: 40px;
+        margin-bottom: 100px;
         height: 300px;
         z-index: 1; /* Ensures .boxholder stays below the image */
     }
@@ -187,11 +190,10 @@ a:hover {
     #picture {
         position: absolute; /* Position relative for better control */
         max-width: 100%;
-        top: 100px;
+        margin-top: 100px;
         height: auto;
         border-radius: 90%; /* Rounded corners */
         z-index: 2; /* Ensures image stays above .boxholder */
-        margin: 0 auto 20px auto; /* Center the image and add margin below it */
     }
 
 
@@ -231,17 +233,17 @@ a:hover {
         align-items: flex-start;
         margin-top: 40px;
         height: 300px;
+        margin-bottom: 100px;
         z-index: 1; /* Ensures .boxholder stays below the image */
     }
 
     #picture {
         position: absolute; /* Position relative for better control */
         max-width: 100%;
-        top: 100px;
+        margin-top: 100px;
         height: auto;
         border-radius: 90%; /* Rounded corners */
         z-index: 2; /* Ensures image stays above .boxholder */
-        margin: 0 auto 20px auto; /* Center the image and add margin below it */
     }
 
     a {
