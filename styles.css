@@ -110,12 +110,6 @@ body {
     font-weight: bold;
 }
 
-
-.me:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 .projects {
     display: flex;
     flex-direction: column;
