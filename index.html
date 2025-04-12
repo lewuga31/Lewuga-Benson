@@ -5,27 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Léwuga Benson</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Artistic tree and line visuals */
+        .environment {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            z-index: -1;
+        }
+
+        .tree {
+            width: 40px;
+            height: 80px;
+            background: #4b8f29;
+            border-radius: 0 0 50% 50%;
+            position: relative;
+        }
+
+        .tree::before {
+            content: '';
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            width: 8px;
+            height: 40px;
+            background: #5b3924;
+            transform: translateX(-50%);
+        }
+
+        .line {
+            height: 2px;
+            width: 100%;
+            background: #333;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="hook"></div>
         <div class="string-container">
             <div class="string"></div>
-             <!-- Container for the 3D model -->
         </div>
     </div>
-    <div id="cylinder-container"></div>  <!-- Container for the 3D model I moved it into its own separate place to make it a parent-->
+    <div id="cylinder-container"></div>
     <div class="content">
         <div class="intro">
             <h2>Léwuga Tata Benson, Multidisciplinary Artist</h2>
-            <a href="artistbio.html"<h3 class="me">Artist Bio</h3></a>
-            <a href="film+video.html"<h3 class="film">Film + Video</h3></a>
-            <a href="installations.html"<h3 class="install">Installations</h3></a>
+            <a href="artistbio.html"><h3 class="me">Artist Bio</h3></a>
+            <a href="film+video.html"><h3 class="film">Film + Video</h3></a>
+            <a href="installations.html"><h3 class="install">Installations</h3></a>
             <a href="https://drive.google.com/file/d/1aDjOQMyZa-xksOGfZWpb1EOUbKxG1Oi3/view" target="_blank">CV</a>
         </div>
-        <img src="man.png" alt="man staring into the distance">
-        
     </div>
+
+    <div class="environment">
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+    </div>
+    <div class="line"></div>
 
     <!-- Include Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -34,7 +75,6 @@
 
     <!-- Three.js Setup -->
     <script>
-        // Basic Three.js setup
         const container = document.getElementById('cylinder-container');
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -42,45 +82,35 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // Soft white light
+        const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Softer directional light
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
         directionalLight.position.set(0, 1, 0).normalize();
         scene.add(directionalLight);
 
-        // Load the GLTF model
         const loader = new THREE.GLTFLoader();
         loader.load(
-    'oil_barrel.glb', // Replace with the path to your model
-    function (gltf) {
-        const model = gltf.scene;
+            'oil_barrel.glb',
+            function (gltf) {
+                const model = gltf.scene;
+                model.position.set(0, -1.6, 0);
+                scene.add(model);
+            },
+            undefined,
+            function (error) {
+                console.error(error);
+            }
+        );
 
-        // Adjust the position of the model
-        model.position.set(0, -1.6, 0); // x, y, z coordinates
-
-        scene.add(model);
-    },
-    undefined,
-    function (error) {
-        console.error(error);
-    }
-);
-
-
-        // Position the camera
         camera.position.z = 5;
 
-        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
         }
-
         animate();
 
-        // Handle window resize
         window.addEventListener('resize', function () {
             const width = window.innerWidth;
             const height = window.innerHeight;
@@ -90,4 +120,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
