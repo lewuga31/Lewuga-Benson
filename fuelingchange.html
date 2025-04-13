@@ -1,19 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fueling Change</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      .horizontal-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 1000px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 20px;
+      }
+
+      .horizontal-section img {
+        width: 45%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .horizontal-section p {
+        width: 55%;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .horizontal-section {
+          flex-direction: column;
+        }
+
+        .horizontal-section img,
+        .horizontal-section p {
+          width: 100%;
+        }
+      }
+
+      .catalog-link {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin: 40px auto;
+        display: block;
+        color: #007BFF;
+      }
+    </style>
   </head>
   <body>
-    <div class="boxholder3">
-    <h3 class="fuelingchange2">Fueling Change, Buffalo Arts Studio, 2024</h3>
-<p class="sentence2">I traveled to the Niger Delta in Nigeria to capture live-action footage of the devastating impact of oil extraction on local communities. <br>This footage was later transformed into an installation at the Buffalo Arts Studio. Central to the installation was a 55-gallon oil drum suspended from the ceiling, equipped with a transducer that converted it into a sound object. Accompanying the oil drum were projections displaying the captured footage from the region. <br>The installation aimed to highlight the environmental and social crises faced by the local Indigenous communities, fostering awareness and encouraging solutions to their plight.</p>
-</div>
-     <a href="https://www.buffaloartsstudio.org/wp-content/uploads/2024/07/Benson-4-page-catalog.pdf" target="_blank"><p>Fueling Change (2024)</p></a>
-    <div id="picture">
-      <img src="Benson_Lewuga_7.jpg" alt="opening reception of Fueling Change (2024)">
-      </div>
+
+    <div class="horizontal-section">
+      <img src="Benson_Lewuga_7.jpg" alt="Fueling Change installation">
+      <p>
+        I traveled to the Niger Delta in Nigeria to capture live-action footage of the devastating impact of oil extraction on local communities. This footage was later transformed into an installation at the Buffalo Arts Studio. Central to the installation was a 55-gallon oil drum suspended from the ceiling, equipped with a transducer that converted it into a sound object. Accompanying the oil drum were projections displaying the captured footage from the region.
+      </p>
+    </div>
+
+    <div class="horizontal-section">
+      <img src="Benson_Lewuga_2.jpg" alt="Audience at Buffalo Arts Studio">
+      <p>
+        The immersive layout of the space invited the audience to experience environmental devastation not just as observers but as participants. The integration of sound from the drum added a visceral layer, transforming visual storytelling into an embodied encounter.
+      </p>
+    </div>
+
+    <div class="horizontal-section">
+      <img src="Benson_Lewuga_3.jpg" alt="Community impact projection">
+      <p>
+        This installation aimed to highlight the environmental and social crises faced by the local Indigenous communities, fostering awareness and encouraging solutions to their plight. It served as a bridge between distant realities and immediate understanding.
+      </p>
+    </div>
+
+    <a href="https://www.buffaloartsstudio.org/wp-content/uploads/2024/07/Benson-4-page-catalog.pdf" target="_blank" class="catalog-link">Fueling Change (2024) Catalog</a>
+
   </body>
 </html>
