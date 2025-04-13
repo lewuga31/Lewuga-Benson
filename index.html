@@ -5,35 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Léwuga Benson</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        position: absolute;
+        top: 0;
+        text-align: center;
+      }
+
+      .hook {
+        width: 10px;
+        height: 10px;
+        background-color: #000;
+        margin: 0 auto;
+      }
+
+      .string-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: sway 3s ease-in-out infinite;
+        transform-origin: top center;
+      }
+
+      @keyframes sway {
+        0% { transform: rotate(-10deg); }
+        50% { transform: rotate(10deg); }
+        100% { transform: rotate(-10deg); }
+      }
+
+      .string {
+        width: 2px;
+        height: 410px;
+        background-color: #000;
+        position: relative;
+        z-index: 2;
+      }
+
+      #cylinder-container {
+        animation: swing 3s ease-in-out infinite;
+        transform-origin: top center;
+      }
+
+      @keyframes swing {
+        0% { transform: rotate(-10deg); }
+        50% { transform: rotate(10deg); }
+        100% { transform: rotate(-10deg); }
+      }
+
+      .content {
+        position: absolute;
+        top: 40px;
+        left: 30px;
+        padding: 20px;
+      }
+
+      .intro h2 {
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+      }
+
+      .intro a {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .intro a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          top: auto;
+          bottom: 40px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 90%;
+          text-align: center;
+        }
+
+        .intro h2 {
+          font-size: 1.4rem;
+        }
+
+        .intro a {
+          font-size: 1rem;
+        }
+      }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="hook"></div>
         <div class="string-container">
             <div class="string"></div>
-             <!-- Container for the 3D model -->
         </div>
     </div>
-    <div id="cylinder-container"></div>  <!-- Container for the 3D model I moved it into its own separate place to make it a parent-->
+
+    <div id="cylinder-container"></div>
+
     <div class="content">
         <div class="intro">
             <h2>Léwuga Tata Benson, Multidisciplinary Artist</h2>
-            <a href="artistbio.html"<h3 class="me">Artist Bio</h3></a>
-            <a href="film+video.html"<h3 class="film">Film + Video</h3></a>
-            <a href="installations.html"<h3 class="install">Installations</h3></a>
+            <a href="artistbio.html">Artist Bio</a>
+            <a href="film+video.html">Film + Video</a>
+            <a href="installations.html">Installations</a>
             <a href="https://drive.google.com/file/d/1aDjOQMyZa-xksOGfZWpb1EOUbKxG1Oi3/view" target="_blank">CV</a>
         </div>
-        
     </div>
 
-    <!-- Include Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Include GLTFLoader -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-
-    <!-- Three.js Setup -->
     <script>
-        // Basic Three.js setup
         const container = document.getElementById('cylinder-container');
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -41,36 +133,29 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // Soft white light
+        const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Softer directional light
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
         directionalLight.position.set(0, 1, 0).normalize();
         scene.add(directionalLight);
 
-        // Load the GLTF model
         const loader = new THREE.GLTFLoader();
         loader.load(
-    'oil_barrel.glb', // Replace with the path to your model
-    function (gltf) {
-        const model = gltf.scene;
+            'oil_barrel.glb',
+            function (gltf) {
+                const model = gltf.scene;
+                model.position.set(0, -1.6, 0);
+                scene.add(model);
+            },
+            undefined,
+            function (error) {
+                console.error(error);
+            }
+        );
 
-        // Adjust the position of the model
-        model.position.set(0, -1.6, 0); // x, y, z coordinates
-
-        scene.add(model);
-    },
-    undefined,
-    function (error) {
-        console.error(error);
-    }
-);
-
-        // Position the camera
         camera.position.z = 5;
 
-        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
@@ -78,7 +163,6 @@
 
         animate();
 
-        // Handle window resize
         window.addEventListener('resize', function () {
             const width = window.innerWidth;
             const height = window.innerHeight;
@@ -88,4 +172,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
