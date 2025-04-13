@@ -1,21 +1,72 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Land Gives Until It No Longer Can</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      .horizontal-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 1000px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 20px;
+      }
+
+      .horizontal-section img {
+        width: 45%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .horizontal-section p {
+        width: 55%;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .horizontal-section {
+          flex-direction: column;
+        }
+
+        .horizontal-section img,
+        .horizontal-section p {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="boxholder3">
-    <h3 class="land1">The Land Gives Until It No Longer Can, University at Buffalo, 2022</h3>
-<p class="sentence3">This project featured three 55-gallon oil drums suspended from the ceiling, each equipped with a transducer, accompanied by three rear-screen projections. Instead of hearing sound directly from the projection screens, visitors experienced the audio emanating from the oil drums, emphasizing the connection between the visual narratives and the physical objects conveying them. Each projection presented a distinct perspective on the oil crisis in the Niger Delta—political, personal, and environmental.</p>
-</div>
-    
-    <div id="picture">
-      <img src="Benson_Lewuga_1.jpg" alt="3 oil drums and 3 rear projections screens inside a gallery at the University of Buffalo (2022)">
-      </div>
+
+    <div class="horizontal-section">
+      <img src="Benson_Lewuga_1.jpg" alt="3 oil drums and 3 rear projections inside gallery, University at Buffalo (2022)">
+      <p>
+        <strong>The Land Gives Until It No Longer Can, University at Buffalo, 2022</strong><br><br>
+        This project featured three 55-gallon oil drums suspended from the ceiling, each equipped with a transducer, accompanied by three rear-screen projections. Instead of hearing sound directly from the projection screens, visitors experienced the audio emanating from the oil drums—emphasizing the connection between the visual narratives and the physical objects conveying them.
+      </p>
+    </div>
+
+    <div class="horizontal-section">
+      <img src="03_TheLandGivesUntilItNoLongerCan.JPG" alt="Side view of projections and oil drums">
+      <p>
+        Each projection presented a distinct perspective on the oil crisis in the Niger Delta—political, personal, and environmental. This triptych structure allowed viewers to navigate complex narratives from multiple entry points, reinforcing the layered nature of ecological harm.
+      </p>
+    </div>
+
+    <div class="horizontal-section">
+      <img src="thelandgives.JPG" alt="Audience engaging with suspended oil drums and screens">
+      <p>
+        The spatial arrangement of the installation invited movement and interaction, prompting visitors to listen closely, move between screens, and consider their physical proximity to the work as part of the experience.
+      </p>
+    </div>
+
   </body>
 </html>
