@@ -1,21 +1,73 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traces of Displacement</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      .horizontal-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 1000px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 20px;
+      }
+
+      .horizontal-section img {
+        width: 45%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .horizontal-section p {
+        width: 55%;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .horizontal-section {
+          flex-direction: column;
+        }
+
+        .horizontal-section img,
+        .horizontal-section p {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="boxholder3">
-    <h3 class="traces">Traces of Displacement, Great Arrow Art Gallery, 2023</h3>
-<p class="sentence3">This installation leveraged its location, the acoustics of the space, and the natural curiosity of participants, inviting them to explore what it was and how they might engage with it. <br>Traces of Displacement centered around a single oil drum connected to a transducer, which reverberated the voices of Indigenous people from the Niger Delta alongside sounds from both natural and industrial environments—water, wind, and an oil pump jack. Together, these elements told a deeply personal yet globally resonant story of ecological devastation and forced migration.<br>Stripped of the bells and whistles that often accompany my work, Traces of Displacement was a pared-down version of my previous projects—raw, direct, and intentional.</p>
-</div>
-    
-    <div id="picture">
+
+    <div class="horizontal-section">
       <img src="Traces.JPG" alt="A blue oil drum in the Great Arrow Art Gallery (2023)">
-      </div>
+      <p>
+        <strong>Traces of Displacement, Great Arrow Art Gallery, 2023</strong><br><br>
+        This installation leveraged its location, the acoustics of the space, and the natural curiosity of participants, inviting them to explore what it was and how they might engage with it.
+        <br><br>
+        Traces of Displacement centered around a single oil drum connected to a transducer, which reverberated the voices of Indigenous people from the Niger Delta alongside sounds from both natural and industrial environments—water, wind, and an oil pump jack.
+        Together, these elements told a deeply personal yet globally resonant story of ecological devastation and forced migration.
+        <br><br>
+        Stripped of the bells and whistles that often accompany my work, this was a pared-down version of my previous projects—raw, direct, and intentional.
+      </p>
+    </div>
+
+    <div class="horizontal-section">
+      <img src="IMG_2048.JPG" alt="Installation setup with audio equipment and oil drum">
+      <p>
+        This behind-the-scenes image captures the setup process for <em>Traces of Displacement</em>. It reveals the technical infrastructure supporting the experience:
+        an open-lidded oil drum fitted with a transducer, surrounded by cable wire, a TV monitor, amplifier, and media player. 
+        <br><br>
+        These elements worked together to deliver the layered soundscape that filled the gallery space—making the installation not only heard but felt.
+      </p>
+    </div>
+
   </body>
 </html>
