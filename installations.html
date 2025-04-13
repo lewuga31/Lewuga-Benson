@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,17 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Installations</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .install-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .install-header h3 {
+        font-size: 2rem;
+        color: #222;
+      }
+
+      .project-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .project-card {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        width: 90%;
+        max-width: 700px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-card a {
+        text-decoration: none;
+        color: #007BFF;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .project-card a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .project-card a {
+          font-size: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="boxholder2">
-    <h3 class="install2">Installations</h3>
+    <div class="install-header">
+      <h3>Installations</h3>
     </div>
-    <div class="projects">
-            <a href="fuelingchange.html" target="_blank"><p>Project 1: Fueling Change (2024)</p></a>
-            <a href="untitled.html" target="_blank"><p>Project 2: Untitled (2024)</p></a>
-            <a href="tracesofdisplacement.html" target="_blank"><p>Project 3: Traces of Displacement (2023)</p></a>
-            <a href="thelandgivesuntilitnolongercan.html" target="_blank"><p>Project 4: The Land Gives Until It No Longer Can (2022)</p></a>
 
-        </div>
+    <div class="project-list">
+      <div class="project-card">
+        <a href="fuelingchange.html" target="_blank">Project 1: Fueling Change (2024)</a>
+      </div>
+      <div class="project-card">
+        <a href="untitled.html" target="_blank">Project 2: Untitled (2024)</a>
+      </div>
+      <div class="project-card">
+        <a href="tracesofdisplacement.html" target="_blank">Project 3: Traces of Displacement (2023)</a>
+      </div>
+      <div class="project-card">
+        <a href="thelandgivesuntilitnolongercan.html" target="_blank">Project 4: The Land Gives Until It No Longer Can (2022)</a>
+      </div>
+    </div>
   </body>
 </html>
