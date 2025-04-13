@@ -1,20 +1,72 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Untitled</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      .horizontal-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 1000px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 20px;
+      }
+
+      .horizontal-section img {
+        width: 45%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .horizontal-section p {
+        width: 55%;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .horizontal-section {
+          flex-direction: column;
+        }
+
+        .horizontal-section img,
+        .horizontal-section p {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="boxholder3">
-    <h3 class="untitled1">Untitled, Fredonia University, 2024</h3>
-<p class="sentence3">As part of the New York State Summer School of the Arts (NYSSSA) program, I exhibited an oil gallon at the University of Fredonia, illuminating the oil disasters in the Niger Delta.</p>
-</div>
-    
-    <div id="picture">
+
+    <div class="horizontal-section">
       <img src="Untitled 4.jpeg" alt="NYSSSA event at Fredonia University (2024)">
-      </div>
+      <p>
+        Untitled, Fredonia University, 2024<br><br>
+        As part of the New York State Summer School of the Arts (NYSSSA) program, I exhibited an oil gallon at the University of Fredonia, illuminating the oil disasters in the Niger Delta.
+      </p>
+    </div>
+
+    <div class="horizontal-section">
+      <img src="Untitled_5.jpg" alt="Audience viewing installation">
+      <p>
+        Through the interplay of sound, light, and imagery, the installation brought attention to the far-reaching effects of petroleum extraction, echoing the struggle and resilience of the local communities.
+      </p>
+    </div>
+
+    <div class="horizontal-section">
+      <img src="Untitled_6.jpg" alt="Projected footage on installation walls">
+      <p>
+        The experience was immersive and contemplative, asking viewers to reflect on environmental responsibility and our shared stake in ecological justice.
+      </p>
+    </div>
+
   </body>
 </html>
