@@ -1,1 +1,131 @@
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Film + Video</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #111;
+        color: #fff;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        padding: 20px 0;
+      }
+
+      .section {
+        margin: 40px auto;
+        width: 90%;
+        max-width: 1200px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .item {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .item img, .item video {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      .item:hover img,
+      .item:hover video {
+        transform: scale(1.05);
+        filter: brightness(60%);
+      }
+
+      .overlay {
+        position: absolute;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .item:hover .overlay {
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.5rem;
+        }
+        .overlay {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Film</h1>
+    <div class="section grid">
+      <div class="item">
+        <img src="images/theplacesiknow.jpg" alt="The Places I Know" />
+        <div class="overlay">The Places I Know, directed and edited by me, 2021</div>
+      </div>
+      <div class="item">
+        <img src="images/thismutt.jpg" alt="This Mutt" />
+        <div class="overlay">This Mutt, directed and edited by me, 2020</div>
+      </div>
+      <div class="item">
+        <img src="images/timetoleave.jpg" alt="Time to Leave" />
+        <div class="overlay">Time to Leave, directed, written, and edited by me, 2019</div>
+      </div>
+      <div class="item">
+        <img src="images/thejump.jpg" alt="The Jump" />
+        <div class="overlay">The Jump, directed and edited by me, 2019</div>
+      </div>
+    </div>
+
+    <h1>Video</h1>
+    <div class="section grid">
+      <div class="item">
+        <video controls poster="images/16mmthumb.jpg">
+          <source src="videos/16mm.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="overlay">16mm, shot on Bolex, directed/produced/edited by me, 2020</div>
+      </div>
+      <div class="item">
+        <video controls poster="images/home.jpg">
+          <source src="videos/home.mp4" type="video/mp4" />
+        </video>
+        <div class="overlay">Home, directed/written/edited by me, 2020</div>
+      </div>
+      <div class="item">
+        <video controls poster="images/vacation.jpg">
+          <source src="videos/vacation.mp4" type="video/mp4" />
+        </video>
+        <div class="overlay">Vacation, directed and edited by me, 2019</div>
+      </div>
+      <div class="item">
+        <video controls poster="images/meshes.jpg">
+          <source src="videos/meshes.mp4" type="video/mp4" />
+        </video>
+        <div class="overlay">Meshes of the Afternoon (re-creation), directed by me, 2019</div>
+      </div>
+    </div>
+  </body>
+</html>
