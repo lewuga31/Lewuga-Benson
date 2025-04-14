@@ -24,10 +24,10 @@
 
     .horizontal-scroll {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      overflow-x: auto;
       gap: 20px;
       padding: 20px;
+      scroll-snap-type: x mandatory;
     }
 
     .video-item {
@@ -38,6 +38,7 @@
       background-color: #000;
       cursor: pointer;
       border-radius: 6px;
+      scroll-snap-align: start;
     }
 
     .video-item img, .video-item video {
@@ -80,7 +81,7 @@
       }
 
       .video-item {
-        width: 90%;
+        width: 250px;
       }
     }
   </style>
@@ -140,8 +141,6 @@
         <div class="overlay">Meshes of the Afternoon (re-creation), directed by me, 2019</div>
       </a>
     </div>
-  </div>
-  <div class="horizontal-scroll">
     <div class="video-item">
       <a href="videos/ubdebate.html">
         <video muted src="videos/ubdebate.mp4"></video>
@@ -151,3 +150,4 @@
   </div>
 </body>
 </html>
+
