@@ -39,12 +39,18 @@
       cursor: pointer;
       border-radius: 6px;
       scroll-snap-align: start;
+      transition: filter 0.3s ease;
     }
 
     .video-item img, .video-item video {
       width: 100%;
       height: auto;
       display: block;
+      transition: filter 0.3s ease;
+    }
+
+    .video-item:hover img, .video-item:hover video {
+      filter: grayscale(100%);
     }
 
     .overlay {
