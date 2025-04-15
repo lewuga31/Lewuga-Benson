@@ -313,22 +313,3 @@ a:hover {
     text-decoration: underline;
     transform: translateX(5px);
 }
-
-.drum-link {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 240px; /* adjust based on how far down the drum sits */
-    left: calc(50% - 75px); /* center horizontally, assuming 150px wide */
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-}
-
-.drum-link:hover #cylinder-container {
-    filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.7)); /* red glow */
-    transform: scale(1.03);
-    transition: all 0.3s ease-in-out;
-}
