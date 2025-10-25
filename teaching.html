@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Léwuga Benson – Teaching</title>
-    <link rel="stylesheet" href="styles.css" />
     <style>
       /* --- Base Styles --- */
       body {
@@ -26,10 +25,12 @@
       /* --- Hero Section --- */
       .hero {
         position: relative;
-        height: 90vh;
+        height: 85vh;
         min-height: 600px;
-        background: #000 url("stills/IMG_3908.JPEG") center top/contain no-repeat;
-        background-color: #000;
+        background-image: url("stills/IMG_3908.JPEG");
+        background-size: cover; /* keeps full width, natural ratio */
+        background-position: center 25%; /* shifts view up slightly to show more */
+        background-repeat: no-repeat;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,17 +38,17 @@
       }
 
       .hero::after {
-        /* soft blur overlay for cinematic feel */
+        /* Soft blur & color overlay */
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(4px);
         background: linear-gradient(
-          rgba(55, 64, 36, 0.6),
-          rgba(0, 0, 0, 0.6)
+          rgba(55, 64, 36, 0.45),
+          rgba(0, 0, 0, 0.45)
         );
         z-index: 1;
       }
@@ -69,7 +70,6 @@
         font-size: 2.8rem;
         margin-bottom: 20px;
         font-weight: 600;
-        letter-spacing: 0.5px;
       }
 
       .hero-content p {
@@ -140,16 +140,16 @@
       }
 
       @media (max-width: 768px) {
+        .hero {
+          background-position: center 35%;
+          height: 70vh;
+        }
         .hero-content h1 {
           font-size: 2rem;
         }
 
         .hero-content p {
           font-size: 1rem;
-        }
-
-        .section {
-          margin: 60px auto;
         }
       }
     </style>
