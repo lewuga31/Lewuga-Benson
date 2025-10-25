@@ -210,18 +210,54 @@
       </p>
     </section>
 
-    <footer>
+    !-- in the <head> -->
+<style>
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f1f1ef;
+    color: #555;
+    font-size: 0.95rem;
+  }
+
+  .social-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .social-links a svg {
+    transition: transform 0.3s ease, stroke 0.3s ease;
+    stroke: #374024;
+    display: block;
+  }
+
+  .social-links a:hover svg {
+    transform: scale(1.12);
+    stroke: #5a6640;
+  }
+
+  /* optional: small spacing between copyright text & icons on very small screens */
+  @media (max-width: 420px) {
+    .social-links { gap: 12px; margin-top: 10px; }
+  }
+</style>
+
+<!-- in the <body> where your footer goes -->
+<footer>
   <p>© 2025 Léwuga Benson | Teaching & Filmmaking</p>
   <div class="social-links">
-    <a href="https://www.instagram.com/lewugabenson/" target="_blank" aria-label="Instagram">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#374024" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <a href="https://www.instagram.com/lewugabenson/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
         <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
       </svg>
     </a>
-    <a href="https://www.linkedin.com/in/lewuga-benson-49031086/" target="_blank" aria-label="LinkedIn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#374024" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+    <a href="https://www.linkedin.com/in/lewuga-benson-49031086/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
         <rect x="2" y="9" width="4" height="12"></rect>
         <circle cx="4" cy="4" r="2"></circle>
@@ -229,20 +265,5 @@
     </a>
   </div>
 </footer>
-    .social-links {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.social-links a svg {
-  transition: transform 0.3s ease, stroke 0.3s ease;
-}
-
-.social-links a:hover svg {
-  transform: scale(1.1);
-  stroke: #5a6640;
-}
   </body>
 </html>
