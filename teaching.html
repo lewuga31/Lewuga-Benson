@@ -13,36 +13,234 @@
         color: #333;
       }
 
+      /* HERO SECTION */
+      .hero {
+        position: relative;
+        height: 70vh;
+        min-height: 480px;
+        background: url("teaching-hero.jpg") center center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #f9f9f6;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(55, 64, 36, 0.55);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 800px;
+        padding: 0 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #f9f9f6;
+      }
+
+      /* MAIN CONTENT */
       .teaching-container {
         max-width: 1100px;
         margin: 0 auto;
-        padding: 60px 20px;
+        padding: 70px 20px;
         display: flex;
         flex-direction: column;
         gap: 70px;
-      }
-
-      .philosophy {
-        text-align: center;
-      }
-
-      .philosophy h2 {
-        font-size: 2.4rem;
-        margin-bottom: 20px;
-        color: #374024;
-        letter-spacing: 0.5px;
-      }
-
-      .philosophy p {
-        font-size: 1.2rem;
-        line-height: 1.8;
-        max-width: 850px;
-        margin: 0 auto;
-        color: #444;
       }
 
       .project-section {
         display: flex;
         align-items: center;
         gap: 40px;
-        flex-wrap: wra
+        flex-wrap: wrap;
+        background-color: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        padding: 40px;
+      }
+
+      .project-text {
+        flex: 1 1 400px;
+      }
+
+      .project-text h3 {
+        font-size: 1.6rem;
+        color: #374024;
+        margin-bottom: 10px;
+      }
+
+      .project-text p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #444;
+      }
+
+      .project-image {
+        flex: 1 1 400px;
+      }
+
+      .project-image img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-section h3 {
+        color: #374024;
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .gallery img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(55, 64, 36, 0.2);
+      }
+
+      footer {
+        text-align: center;
+        padding: 50px 0 20px;
+        font-size: 1rem;
+        color: #374024;
+        border-top: 2px solid #cbbf8b;
+      }
+
+      a {
+        color: #374024;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: color 0.3s, border-color 0.3s;
+      }
+
+      a:hover {
+        color: #cbbf8b;
+        border-color: #cbbf8b;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          height: 60vh;
+        }
+
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+        }
+
+        .project-section {
+          flex-direction: column;
+          padding: 30px;
+        }
+
+        .project-text,
+        .project-image {
+          flex: 1 1 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Teaching Philosophy</h1>
+        <p>
+          My teaching philosophy is rooted in a hands-on approach — learning by
+          doing. I emphasize real-world scenarios and actionable solutions that
+          push students to go beyond the classroom, helping them develop
+          practical and tactile experience in filmmaking.
+        </p>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="teaching-container">
+      <!-- Project Section 1 -->
+      <section class="project-section">
+        <div class="project-image">
+          <img src="behindthescenes1.jpg" alt="Students filming on set" />
+        </div>
+        <div class="project-text">
+          <h3>Lighting & Filmmaking Workshop</h3>
+          <p>
+            In this workshop, students learned to use professional lighting
+            equipment such as the Aputure 300X and Nova P300C to create mood and
+            atmosphere in their scenes. We focused on problem-solving through
+            light — translating emotions and story beats visually.
+          </p>
+        </div>
+      </section>
+
+      <!-- Project Section 2 -->
+      <section class="project-section">
+        <div class="project-text">
+          <h3>On-Location Film Shoots</h3>
+          <p>
+            Through collaborative short film projects, students explore every
+            stage of production — from pre-visualization to final edit. These
+            shoots encourage adaptability, teamwork, and creativity under
+            real-world conditions, preparing them for professional film sets.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="onsetstudents.jpg" alt="Students on location shoot" />
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section class="gallery-section">
+        <h3>Behind the Scenes</h3>
+        <div class="gallery">
+          <img src="bts1.jpg" alt="Student operating camera" />
+          <img src="bts2.jpg" alt="Lighting setup demonstration" />
+          <img src="bts3.jpg" alt="Filming with actors on set" />
+          <img src="bts4.jpg" alt="Editing session with students" />
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          © 2025 Léwuga Tata Benson | Contact:
+          <a href="mailto:lewuga31@gmail.com">lewuga31@gmail.com</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
