@@ -2,62 +2,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Time To Leave</title>
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time to Leave</title>
+  <link rel="stylesheet" href="styles.css" />
+
   <style>
-    body {
-      background-color: #111;
-      color: #f0f0f0;
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
+    body{
+      margin:0;
+      background:#0f0f0f;
+      color:#f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
     }
 
-    .film-details {
-      padding: 40px 20px 20px;
+    .top{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-bottom: 18px;
     }
 
-    .film-details h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    .title{
+      font-size: 20px;
+      letter-spacing:.04em;
+      text-transform: uppercase;
+      margin:0;
     }
 
-    .film-details p {
-      margin: 5px 0;
-      font-size: 1.1rem;
-      color: #ccc;
+    .back{
+      color:#f0f0f0;
+      opacity:.85;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.16);
+      padding:10px 12px;
+      border-radius:10px;
+      background: rgba(255,255,255,.06);
+    }
+    .back:hover{ opacity:1; background: rgba(255,255,255,.10); }
+
+    .hero{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      background:#000;
+      border-radius:12px;
+      overflow:hidden;
+      margin: 10px 0 18px;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
 
-    .film-video {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 40px auto 80px;
-      max-width: 100%;
+    .meta-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 20px;
+      padding: 14px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      margin-bottom: 18px;
+    }
+    .meta-item{
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .meta-item strong{
+      display:block;
+      font-size: 12px;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      opacity:.8;
+      margin-bottom: 4px;
     }
 
-    .film-video iframe {
-      width: 90vw;
-      height: 50vw;
-      max-width: 1280px;
-      max-height: 720px;
-      border: none;
-      border-radius: 8px;
+    .section{
+      margin-top: 18px;
+    }
+    .section h3{
+      margin: 0 0 10px;
+      font-size: 12px;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      opacity:.85;
+    }
+    .section p{
+      margin:0;
+      font-size: 14px;
+      line-height: 1.55;
+      opacity:.95;
+    }
+
+ 
+    .gallery{
+      margin-top: 16px;
+      display:flex;
+      gap:10px;
+      overflow-x:auto;
+      padding-bottom: 6px;
+      scroll-snap-type: x mandatory;
+    }
+    .gallery img{
+      height: 120px;
+      width:auto;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.10);
+      scroll-snap-align: start;
+      display:block;
+    }
+
+    @media (max-width: 700px){
+      .meta-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="film-details">
-    <h1>Time To Leave</h1>
-    <p>Director / All post: Léwuga Benson</p>
-    <p>2019</p>
-  </div>
+  <div class="wrap">
+    <div class="top">
+      <h1 class="title">Time To Leave</h1>
+      <a class="back" href="film-video.html">← Back to Film + Video</a>
+    </div>
 
-  <div class="film-video">
-    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1075191762?h=2746b5a3a9" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+    <div class="hero">
+      <img src="stills/the places I know.png" alt="The Places I Know cover image">
+    </div>
+
+  
+    <div class="meta-grid">
+      <div class="meta-item">
+        <strong>Format</strong>
+        Single-channel video
+      </div>
+      <div class="meta-item">
+        <strong>Year</strong>
+        2019
+      </div>
+      <div class="meta-item">
+        <strong>Runtime</strong>
+        8 min
+      </div>
+      <div class="meta-item">
+        <strong>Resolution</strong>
+        4K
+      </div>
+      <div class="meta-item">
+        <strong>Audio</strong>
+        Stereo
+      </div>
+      <div class="meta-item">
+        <strong>Credits</strong>
+        Director / Producer / Editor: Léwuga Tata Benson
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Synopsis</h3>
+      <p>
+        
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Screenings / Exhibitions</h3>
+      <p>
+        • [Festival / Venue], [City], [Year]<br>
+        • [Festival / Venue], [City], [Year]
+      </p>
+    </div>
+
+ 
+    <div class="section" id="gallerySection">
+      <h3>Gallery</h3>
+      <div class="gallery">
+        <img src="stills/placesiknow_01.jpg" alt="Film still 1">
+        <img src="stills/placesiknow_02.jpg" alt="Film still 2">
+        <img src="stills/placesiknow_03.jpg" alt="Film still 3">
+      </div>
+    </div>
+
   </div>
 </body>
 </html>
