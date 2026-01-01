@@ -8,10 +8,10 @@
 
   <style>
     :root{
-      /* Warm, inviting palette */
-      --bg: #f4efe9;              /* warm paper */
-      --fg: #2a2420;              /* soft charcoal */
-      --muted: #6f665f;           /* warm gray-brown */
+      
+      --bg: #f4efe9;              
+      --fg: #2a2420;             
+      --muted: #6f665f;          
 
       /* Panels / cards */
       --panel: rgba(255,255,255,.68);
@@ -19,8 +19,8 @@
       --border: rgba(42,36,32,.14);
 
       /* Accents */
-      --accent: #b45f4d;          /* clay */
-      --accent-soft: #e3b7a5;     /* blush */
+      --accent: #b45f4d;         
+      --accent-soft: #e3b7a5;    
 
       --radius: 14px;
     }
@@ -37,7 +37,7 @@
         linear-gradient(to bottom, #f4efe9 0%, #ede5dc 100%);
     }
 
-    /* ===== Background slideshow (stays OUTSIDE the dropdown content) ===== */
+    
     .hero{
       position: relative;
       min-height: 100vh;
@@ -72,12 +72,12 @@
 
     /* ===== Page layout ===== */
     .content{
-      position: relative;
-      z-index: 2;
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 34px 18px 80px;
-    }
+  max-width: 1100px;      /* controls page width */
+  margin: 0 auto;         /* centers everything */
+  padding: 34px 24px 80px;
+  box-sizing: border-box;
+}
+
 
     .page-title{
       margin: 0 0 18px;
@@ -87,13 +87,13 @@
       text-align: center;
     }
 
-    /* ===== Project list “box” (like your Installations screenshot) ===== */
+ 
     .project-list{
-      display: grid;
-      gap: 16px;
-      max-width: 980px;
-      margin: 0 auto;
-    }
+  max-width: 980px;       /* matches your design intention */
+  margin: 0 auto;         /* centers the container */
+  padding: 0 12px;        /* inner breathing room */
+  box-sizing: border-box;
+}
 
     .project-card{
       border: 1px solid var(--border);
@@ -168,7 +168,7 @@
       padding: 18px;
     }
 
-    /* ===== The content styles (same vibe as before) ===== */
+   
     .status{
       display:flex;
       gap:10px;
@@ -434,7 +434,7 @@
                       the body becomes the central “artifact,” and mediation becomes visible in real time. The work foregrounds presence vs. translation:
                       what happens when motion is captured, framed, and transformed into an image with its own agency.
                       <div class="note">
-                        This page is designed as a living container. As dates, rehearsals, and venue confirm, you can update these sections without rebuilding the layout.
+                        This page is designed as a living container. As dates, rehearsals, and venue confirm, I will update these sections.
                       </div>
                     </div>
                   </div>
@@ -534,7 +534,7 @@
                         <li><strong>One-day performance + reception:</strong> Late May / Early June 2026</li>
                       </ul>
                       <div class="note">
-                        When the venue locks, replace “windows” with exact dates + add RSVP/ticket links.
+                        When the venue locks, I will replace “windows” with exact dates + add RSVP/ticket links.
                       </div>
                     </div>
                   </div>
@@ -589,7 +589,7 @@
                     <div class="acc-inner">
                       <strong>Funded by:</strong> New York State Council on the Arts (NYSCA).
                       <div class="note">
-                        When your venue is confirmed, add partner logos + acknowledgements here.
+                        When the venue is confirmed, other partners and acknowledgements will be updated here.
                       </div>
                     </div>
                   </div>
@@ -598,7 +598,7 @@
               </div>
 
               <div class="footerline">
-                <div>© <span id="year"></span> Léwuga Tata Benson</div>
+                <div>©2026 <span id="year"></span> Léwuga Tata Benson</div>
                 <div class="muted">Last updated: <span id="lastUpdated">Dec 2025</span></div>
               </div>
 
@@ -684,7 +684,7 @@
       btn.addEventListener("click", () => {
         const isOpen = item.classList.contains("is-open");
 
-        // close others (comment out if you want multiple open)
+      
         accItems.forEach(i => {
           i.classList.remove("is-open");
           i.querySelector(".acc-btn")?.setAttribute("aria-expanded","false");
