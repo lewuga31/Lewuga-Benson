@@ -1,1 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV | Léwuga Tata Benson</title>
+
+  <style>
+    :root{
+      /* Warm, inviting palette */
+      --bg1:#fbf1e6;
+      --bg2:#f4e9dc;
+      --bg3:#efe3d5;
+
+      --ink:#251f1b;
+      --muted:#6a5f58;
+
+      --panel: rgba(255,255,255,.70);
+      --panel2: rgba(255,255,255,.86);
+      --border: rgba(37,31,27,.14);
+
+      --accent:#b25b4a;        /* warm terracotta */
+      --accent2:#9a7a4f;       /* warm brass */
+      --accentSoft: rgba(178,91,74,.12);
+
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(37,31,27,.10);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family: Arial, sans-serif;
+
+      background:
+        radial-gradient(1200px 800px at 15% 10%, #ffe9d3 0%, transparent 55%),
+        radial-gradient(1000px 700px at 80% 20%, #f7e1e0 0%, transparent 60%),
+        radial-gradient(1100px 800px at 50% 95%, #e8f0ea 0%, transparent 55%),
+        linear-gradient(to bottom, var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%);
+
+      overflow-x:hidden;
+    }
+
+    /* Page container */
+    .wrap{
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 18px 80px;
+    }
+
+    /* Top bar / mini navigation (like a CV page) */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(251,241,230,.55);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner{
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 10px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .brand strong{
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .brand span{
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:flex-end;
+    }
+
+    .nav a{
+      text-decoration:none;
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing:.10em;
+      text-transform: uppercase;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.55);
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .nav a:hover{
+      background: rgba(255,255,255,.82);
+      transform: translateY(-1px);
+    }
+
+    /* Header */
+    .header{
+      padding: 26px 0 18px;
+      text-align:center;
+    }
+
+    .title{
+      margin: 0;
+      font-size: 34px;
+      letter-spacing:.02em;
+    }
+
+    .subtitle{
+      margin: 10px auto 0;
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Main CV panel */
+    .cv{
+      margin-top: 18px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .cv-inner{
+      padding: 22px;
+    }
+
+    /* Section headings */
+    .section{
+      padding: 18px 0;
+      border-top: 1px solid rgba(37,31,27,.10);
+    }
+    .section:first-child{ border-top:none; padding-top: 4px; }
+
+    .section h2{
+      margin: 0 0 12px;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ink);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .section h2::after{
+      content:"";
+      height: 1px;
+      flex:1;
+      background: linear-gradient(90deg, rgba(178,91,74,.50), rgba(154,122,79,.10));
+    }
+
+    /* Two-column feel like Laura's CV (label + content) */
+    .rows{
+      display:grid;
+      grid-template-columns: 180px 1fr;
+      gap: 10px 18px;
+      align-items:start;
+    }
+
+    .label{
+      font-size: 12px;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+
+    .content{
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .content p{ margin: 0 0 10px; }
+    .content p:last-child{ margin-bottom: 0; }
+
+    /* Lists */
+    .list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .item{
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(37,31,27,.10);
+      background: rgba(255,255,255,.62);
+    }
+
+    .item strong{
+      display:block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .meta{
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .chips{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .chip{
+      font-size: 12px;
+      color: var(--ink);
+      border: 1px solid rgba(178,91,74,.22);
+      background: var(--accentSoft);
+      padding: 7px 10px;
+      border-radius: 999px;
+      letter-spacing:.02em;
+    }
+
+    /* Footer note */
+    .note{
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 760px){
+      .rows{ grid-template-columns: 1fr; }
+      .label{ white-space: normal; }
+      .title{ font-size: 28px; }
+      .nav a{ padding: 9px 10px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sticky top bar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <strong>Léwuga Benson</strong>
+        <span>CV</span>
+      </div>
+
+      <div class="nav">
+        <a href="#education">Education</a>
+        <a href="#filmography">Filmography</a>
+        <a href="#installations">Installations</a>
+        <a href="#awards">Awards/Grants</a>
+        <a href="#residencies">Residencies</a>
+        <a href="#collaboration">Collaboration</a>
+        <a href="#experience">Experience</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="header">
+      <h1 class="title">Curriculum Vitae</h1>
+      <div class="subtitle">
+        Multidisciplinary artist and filmmaker working across moving image, installation, sound, and performance.
+        This CV page is designed to stay expandable as your projects and screenings grow.
+      </div>
+    </div>
+
+    <div class="cv">
+      <div class="cv-inner">
+
+        <!-- EDUCATION -->
+        <section class="section" id="education">
+          <h2>Education</h2>
+
+          <div class="rows">
+            <div class="label">MFA</div>
+            <div class="content">
+              <div class="item">
+                <strong>Master of Fine Arts in Media Arts Production (GPA 3.7)</strong>
+                <div class="meta">University at Buffalo, Center for the Arts</div>
+                <div class="chips">
+                  <span class="chip">Art in The Open — Coordinator</span>
+                  <span class="chip">Installation: The Land Gives Until It No Longer Can</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="label">BA/BS</div>
+            <div class="content">
+              <div class="item">
+                <strong>Bachelors of Arts and Science in Media Study (GPA 3.3)</strong>
+                <div class="meta">University at Buffalo, Center for the Arts — graduated with high distinction</div>
+                <div class="chips">
+                  <span class="chip">Art in The Open — Committee Member</span>
+                  <span class="chip">Director/Advisor — student class film project</span>
+                  <span class="chip">Videographer — Buffalo International Film Festival</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FILMOGRAPHY -->
+        <section class="section" id="filmography">
+          <h2>Filmography</h2>
+
+          <div class="rows">
+            <div class="label">Feature</div>
+            <div class="content">
+              <ul class="list">
+                <li class="item">
+                  <strong>Leave The Door Open (feature film, 2025)</strong>
+                  <div class="meta">Director / Producer / Writer / Editor — Digital</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="label">Short Films</div>
+            <div class="content">
+              <ul class="list">
+                <li class="item">
+                  <strong>The Places I Know (short film, 2022) — 8 min</strong>
+                  <div class="meta">Director — Digital</div>
+                </li>
+                <li class="item">
+                  <strong>Time to Leave (short film, 2020) — 15 min</strong>
+                  <div class="meta">Director — Digital</div>
+                </li>
+                <li class="item">
+                  <strong>Good Shot (short film, 2020) — 5 min</strong>
+                  <div class="meta">Director — Digital</div>
+                </li>
+                <li class="item">
+                  <strong>This Mutt (short film, 2019) — 6 min</strong>
+                  <div class="meta">Director — Digital</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="label">Co-Directed</div>
+            <div class="content">
+              <ul class="list">
+                <li class="item">
+                  <strong>A Long Long Now (2019) — 30 min</strong>
+                  <div class="meta">Buffalo Youth Media Institute — Co-Director</div>
+                </li>
+                <li class="item">
+                  <strong>Hands as Far as The Eyes Can See (2018) — 27 min</strong>
+                  <div class="meta">Buffalo Youth Media Institute — Co-Director</div>
+                </li>
+                <li class="item">
+                  <strong>Civic Heart (2017) — 19 min</strong>
+                  <div class="meta">Buffalo Youth Media Institute — Co-Director</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="note">
+            Tip: If you want this to match Laura’s “long list” feel even more, we can add a “Selected Screenings” section per film as expandable dropdowns.
+          </div>
+        </section>
+
+        <!-- INSTALLATIONS -->
+        <section class="section" id="installations">
+          <h2>Installations</h2>
+
+          <div class="rows">
+            <div class="label">Selected</div>
+            <div class="content">
+              <ul class="list">
+                <li class="item">
+                  <strong>Fueling Change — Buffalo Arts Studio (2024)</strong>
+                  <div class="meta">Multimedia installation exploring the Niger Delta’s oil crisis</div>
+                </li>
+                <li class="item">
+                  <strong>Untitled — NYSSSA at Fredonia University (2024)</strong>
+                  <div class="meta">Oil drum installation with projection + sound emerging from the drum</div>
+                </li>
+                <li class="item">
+                  <strong>Traces of Displacement — BAM Art Gallery (2023)</strong>
+                  <div class="meta">Single oil drum + sound installation</div>
+                </li>
+                <li class="item">
+                  <strong>Carrying Weight, Carrying the Identity — International Institute of Buffalo (2023)</strong>
+                  <div class="meta">Performance involving carrying a 16-gallon oil drum for an extended duration</div>
+                </li>
+                <li class="item">
+                  <strong>Hang in There — CEPA Gallery (2022)</strong>
+                  <div class="meta">Interactive multimedia exhibit exploring America’s history of racism</div>
+                </li>
+                <li class="item">
+                  <strong>The Land Gives Until It No Longer Can — University at Buffalo (2022)</strong>
+                  <div class="meta">Installation illuminating the environmental devastation of oil extraction in Ogoni land</div>
+                </li>
+                <li class="item">
+                  <strong>Home is Where the Art Is — Buffalo Center for Arts and Technology (2018)</strong>
+                  <div class="meta">Immersive installation exploring art + technology</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- AWARDS / GRANTS -->
+        <section class="section" id="awards">
+          <h2>Awards / Grants</h2>
+
+          <div class="rows">
+            <div class="label">Support</div>
+            <div class="content">
+              <ul class="list">
+                <li class="item">
+                  <strong>New York State Council on the Arts (NYSCA) Grant — 2024</strong>
+                  <div class="meta">Support for projects and production</div>
+                </li>
+                <li class="item">
+                  <strong>New York State Council on the Arts (NYSCA) Grant — 2026</strong>
+                  <div class="meta">Support for Bridging Acts and related programming</div>
+                </li>
+                <li class="item">
+                  <strong>Gregory Capaso Award</strong>
+                  <div class="meta">Recognition for artistic excellence</div>
+                </li>
+                <li class="item">
+                  <strong>Covid-19 Grant — 2020</strong>
+                  <div class="meta">Emergency / relief support</div>
+                </li>
+                <li class="item">
+                  <strong>Outstanding Graduate Film — Time to Leave</strong>
+                  <div class="meta">University at Buffalo</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- RESIDENCIES -->
+        <section class="section" id="residencies">
+          <h2>Residencies</h2>
+
+          <div class="rows">
+            <div class="label">Selected</div>
+            <div class="content">
+              <ul class="list">
+                <li class="item">
+                  <strong>Squeaky Wheel Residency (2024)</strong>
+                  <div class="meta">Buffalo, NY</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- COLLABORATION -->
+        <section class="section" id="collaboration">
+          <h2>Collaboration</h2>
+
+          <div class="rows">
+            <div class="label">Projects</div>
+            <div class="content">
+              <ul class="list">
+                <li class="item">
+                  <strong>Buffalo ReFUSE — Multi-Channel Video Installation (2025)</strong>
+                  <div class="meta">Collaborative project with multiple artists — curated by Michael Chernoff</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="section" id="experience">
+          <h2>Volunteer / Internship Experience</h2>
+
+          <div class="rows">
+            <div class="label">Selected</div>
+            <div class="content">
+              <ul class="list">
+                <li class="item">
+                  <strong>SPCA — Canine Enrichment Volunteer</strong>
+                  <div class="meta">Buffalo, NY</div>
+                </li>
+                <li class="item">
+                  <strong>Shea’s Performing Art Center — Spotlight Committee Volunteer</strong>
+                  <div class="meta">Buffalo, NY</div>
+                </li>
+                <li class="item">
+                  <strong>Albright-Knox Art Gallery — Art Assistant Volunteer</strong>
+                  <div class="meta">Buffalo, NY</div>
+                </li>
+                <li class="item">
+                  <strong>Spectrum Sports — Video Production Intern</strong>
+                  <div class="meta">Buffalo, NY</div>
+                </li>
+                <li class="item">
+                  <strong>Squeaky Wheel Film and Media Art Center — Video Production Intern</strong>
+                  <div class="meta">Buffalo, NY</div>
+                </li>
+                <li class="item">
+                  <strong>WNED-TV Buffalo & Toronto — Pledges Volunteer</strong>
+                  <div class="meta">Buffalo, NY</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
 
