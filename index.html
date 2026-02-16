@@ -1,99 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Léwuga Benson</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <div class="hook"></div>
-        <div class="string-container">
-            <div class="string"></div>
-             <!-- Container for the 3D model -->
-        </div>
-    </div>
-    <!-- CORRECT -->
-<a href="artistbio.html" class="drum-link">
-  <div id="cylinder-container"></div>
-</a>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Léwuga Benson</title>
+  <link rel="stylesheet" href="styles.css" />
 
-<div class="content">
-  <div class="intro">
-    <h2>Léwuga Tata Benson, Multidisciplinary Artist</h2>
-    <div class="nav-links">
-      <a href="artistbio.html">Artist Bio</a>
-        <a href="teaching.html">Teaching</a>
-      <a href="film+video.html">Film + Video</a>
-      <a href="installations.html">Installations</a>
-        <a href="Performances.html">Performances</a>
-      <a href="showreel.html">Showreel</a>
-      <a href="CV.html">CV</a>
+  <style>
+    /* Keep your existing layout, but ensure these are measurable */
+    .container {
+      position: relative;
+      width: 100%;
+    }
+
+    .string-container {
+      position: relative;
+      width: 100%;
+      height: 0; /* your layout may differ; okay if hook is positioned elsewhere */
+    }
+
+    .hook {
+      /* IMPORTANT: hook must be positionable so we can find its screen coords */
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      transform: translateX(-50%);
+      background: #000; /* optional; matches your screenshot */
+    }
+
+    /* Your 3D container should have a stable size */
+    .drum-link{
+      display:block;
+      width:100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    #cylinder-container{
+      width: min(1100px, 90vw);
+      height: clamp(320px, 55vh, 900px);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    #cylinder-container canvas{
+      width:100% !important;
+      height:100% !important;
+      display:block;
+    }
+
+    @media (min-width: 2400px){
+      #cylinder-container{
+        width: min(1600px, 85vw);
+        height: clamp(500px, 55vh, 1100px);
+      }
+    }
+
+    /* SVG overlay string (drawn on top of everything) */
+    #string-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* keep page clickable */
+      z-index: 9999;        /* ensure it stays visible */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="hook"></div>
+
+    <div class="string-container">
+      <!-- Keep your old .string if you want, but it won't be used anymore -->
+      <div class="string" style="display:none;"></div>
     </div>
   </div>
-</div>
 
-    <!-- Include Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Include GLTFLoader -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <!-- SVG line overlay for the string -->
+  <svg id="string-overlay" aria-hidden="true">
+    <line id="string-line" x1="0" y1="0" x2="0" y2="0"
+          stroke="black" stroke-width="4" stroke-linecap="square" />
+  </svg>
 
-    <!-- Three.js Setup -->
-    <script>
-        // Basic Three.js setup
-        const container = document.getElementById('cylinder-container');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        container.appendChild(renderer.domElement);
+  <a href="artistbio.html" class="drum-link">
+    <div id="cylinder-container"></div>
+  </a>
 
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // Soft white light
-        scene.add(ambientLight);
+  <div class="content">
+    <div class="intro">
+      <h2>Léwuga Tata Benson, Multidisciplinary Artist</h2>
+      <div class="nav-links">
+        <a href="artistbio.html">Artist Bio</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="film+video.html">Film + Video</a>
+        <a href="installations.html">Installations</a>
+        <a href="Performances.html">Performances</a>
+        <a href="showreel.html">Showreel</a>
+        <a href="CV.html">CV</a>
+      </div>
+    </div>
+  </div>
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Softer directional light
-        directionalLight.position.set(0, 1, 0).normalize();
-        scene.add(directionalLight);
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
-        // Load the GLTF model
-        const loader = new THREE.GLTFLoader();
-        loader.load(
-    'oil_barrel.glb', // Replace with the path to your model
-    function (gltf) {
-        const model = gltf.scene;
+  <script>
+    const container3D = document.getElementById('cylinder-container');
+    const hookEl = document.querySelector('.hook');
 
-        // Adjust the position of the model
-        model.position.set(0, -1.6, 0); // x, y, z coordinates
+    const svg = document.getElementById('string-overlay');
+    const line = document.getElementById('string-line');
 
-        scene.add(model);
-    },
-    undefined,
-    function (error) {
-        console.error(error);
+    // --- THREE SETUP (responsive to container) ---
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 1000);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); // helps 4K/5K performance
+    container3D.appendChild(renderer.domElement);
+
+    // Lighting
+    scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+    const dir = new THREE.DirectionalLight(0xffffff, 0.8);
+    dir.position.set(1, 2, 1);
+    scene.add(dir);
+
+    camera.position.set(0, 0.2, 5.4);
+
+    let model = null;
+
+    // An “attachment point” inside the 3D model space.
+    // We'll update its position after model loads using a bounding box top center.
+    const attachPoint = new THREE.Object3D();
+    scene.add(attachPoint);
+
+    function resizeRendererToContainer() {
+      const rect = container3D.getBoundingClientRect();
+      const w = Math.max(1, Math.floor(rect.width));
+      const h = Math.max(1, Math.floor(rect.height));
+
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
     }
-);
 
-        // Position the camera
-        camera.position.z = 5;
+    // Keep things responsive if layout changes
+    const ro = new ResizeObserver(() => resizeRendererToContainer());
+    ro.observe(container3D);
+    window.addEventListener('resize', resizeRendererToContainer);
 
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
+    resizeRendererToContainer();
 
-        animate();
+    // Load model
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      'oil_barrel.glb',
+      (gltf) => {
+        model = gltf.scene;
+        scene.add(model);
 
-        // Handle window resize
-        window.addEventListener('resize', function () {
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            renderer.setSize(width, height);
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
-        });
-    </script>
+        // Your original placement
+        model.position.set(0, -1.6, 0);
+
+        // Compute a stable attach point = top center of the model's bounding box.
+        // This is what the string "connects" to.
+        const box = new THREE.Box3().setFromObject(model);
+        const size = new THREE.Vector3();
+        box.getSize(size);
+
+        const topCenter = new THREE.Vector3(
+          (box.min.x + box.max.x) / 2,
+          box.max.y,
+          (box.min.z + box.max.z) / 2
+        );
+
+        // Put the attachPoint at that top-center position (world space)
+        attachPoint.position.copy(topCenter);
+
+        // If you want the string to attach slightly ABOVE the lid, add a small offset:
+        attachPoint.position.y += 0.05;
+      },
+      undefined,
+      (err) => console.error(err)
+    );
+
+    // --- STRING DRAWING (SVG overlay) ---
+    const tmpV = new THREE.Vector3();
+
+    function getHookScreenPoint() {
+      const r = hookEl.getBoundingClientRect();
+      return {
+        x: r.left + r.width / 2,
+        y: r.top + r.height / 2
+      };
+    }
+
+    function getAttachScreenPoint() {
+      // Project attachPoint (3D world) into screen pixels
+      attachPoint.getWorldPosition(tmpV);
+      tmpV.project(camera); // NDC (-1..1)
+
+      const x = (tmpV.x * 0.5 + 0.5) * window.innerWidth;
+      const y = (-tmpV.y * 0.5 + 0.5) * window.innerHeight;
+      return { x, y };
+    }
+
+    function updateStringLine() {
+      // If model not loaded yet, just keep it collapsed
+      if (!model) return;
+
+      const hook = getHookScreenPoint();
+      const tip = getAttachScreenPoint();
+
+      line.setAttribute('x1', hook.x);
+      line.setAttribute('y1', hook.y);
+      line.setAttribute('x2', tip.x);
+      line.setAttribute('y2', tip.y);
+    }
+
+    // --- ANIMATION LOOP ---
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // If you have swinging/rotation logic, it goes here
+
+      renderer.render(scene, camera);
+      updateStringLine(); // keep the line attached every frame
+    }
+    animate();
+  </script>
 </body>
-</html> 
+</html>
+
