@@ -307,6 +307,9 @@ a:hover {
 }
 
 .nav-links a {
+    display: inline-block;     /* <-- THIS enables transform reliably */
+    transform: translateX(0);  /* <-- gives Safari a starting value to animate from */
+    
     font-size: 1.1rem;
     font-weight: 500;
     padding: 4px 0;
@@ -314,6 +317,7 @@ a:hover {
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
+
 
 .nav-links a:hover {
     color: #444;
