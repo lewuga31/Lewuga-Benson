@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* Keep your existing layout, but ensure these are measurable */
     .container {
       position: relative;
       width: 100%;
@@ -16,21 +15,21 @@
     .string-container {
       position: relative;
       width: 100%;
-      height: 0; /* your layout may differ; okay if hook is positioned elsewhere */
+      height: 0; 
     }
 
     .hook {
-      /* IMPORTANT: hook must be positionable so we can find its screen coords */
+      
       position: absolute;
       top: 0;
       left: 50%;
       width: 12px;
       height: 12px;
       transform: translateX(-50%);
-      background: #000; /* optional; matches your screenshot */
+      background: #000; 
     }
 
-    /* Your 3D container should have a stable size */
+    
     .drum-link{
       display:block;
       width:100%;
@@ -58,14 +57,14 @@
       }
     }
 
-    /* SVG overlay string (drawn on top of everything) */
+    
     #string-overlay {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
-      pointer-events: none; /* keep page clickable */
-      z-index: 9999;        /* ensure it stays visible */
+      pointer-events: none;
+      z-index: 9999;        
     }
   </style>
 </head>
@@ -75,7 +74,7 @@
     <div class="hook"></div>
 
     <div class="string-container">
-      <!-- Keep your old .string if you want, but it won't be used anymore -->
+      
       <div class="string" style="display:none;"></div>
     </div>
   </div>
@@ -121,7 +120,7 @@
     const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 1000);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); // helps 4K/5K performance
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); 
     container3D.appendChild(renderer.domElement);
 
     // Lighting
@@ -134,8 +133,7 @@
 
     let model = null;
 
-    // An “attachment point” inside the 3D model space.
-    // We'll update its position after model loads using a bounding box top center.
+   
     const attachPoint = new THREE.Object3D();
     scene.add(attachPoint);
 
@@ -167,8 +165,7 @@
         // Your original placement
         model.position.set(0, -1.6, 0);
 
-        // Compute a stable attach point = top center of the model's bounding box.
-        // This is what the string "connects" to.
+       
         const box = new THREE.Box3().setFromObject(model);
         const size = new THREE.Vector3();
         box.getSize(size);
@@ -179,10 +176,10 @@
           (box.min.z + box.max.z) / 2
         );
 
-        // Put the attachPoint at that top-center position (world space)
+      
         attachPoint.position.copy(topCenter);
 
-        // If you want the string to attach slightly ABOVE the lid, add a small offset:
+    
         attachPoint.position.y += 0.05;
       },
       undefined,
@@ -211,7 +208,7 @@
     }
 
     function updateStringLine() {
-      // If model not loaded yet, just keep it collapsed
+     
       if (!model) return;
 
       const hook = getHookScreenPoint();
@@ -227,10 +224,10 @@
     function animate() {
       requestAnimationFrame(animate);
 
-      // If you have swinging/rotation logic, it goes here
+     
 
       renderer.render(scene, camera);
-      updateStringLine(); // keep the line attached every frame
+      updateStringLine();
     }
     animate();
   </script>
