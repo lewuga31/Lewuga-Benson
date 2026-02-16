@@ -33,7 +33,7 @@ body {
     align-items: center;
     animation: sway 3s ease-in-out infinite;
     transform-origin: top center;
-    height: -100px; */ I add this too */
+   
 } 
 
 @keyframes sway {
@@ -49,12 +49,19 @@ body {
 }
 
 .string {
-    width: 2px;
-    height: 410px;
-    background-color: #000;
-    position: relative;
-    z-index: 2; /* Ensure the string is on top */
+  width: 2px;
+  height: clamp(410px, 62vh, 1100px);
+  background-color: #000;
+  position: relative;
+  z-index: 2;
 }
+
+@media (min-width: 2400px) {
+  .string {
+    height: clamp(700px, 72vh, 1500px);
+  }
+}
+
 
 #cylinder-container {
     animation: swing 3s ease-in-out infinite;
