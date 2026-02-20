@@ -7,7 +7,7 @@
 
   <style>
     :root{
-      /* Warm, inviting palette */
+      /* Warm, inviting palette (same as your current page) */
       --bg1:#fbf1e6;
       --bg2:#f4e9dc;
       --bg3:#efe3d5;
@@ -16,11 +16,10 @@
       --muted:#6a5f58;
 
       --panel: rgba(255,255,255,.70);
-      --panel2: rgba(255,255,255,.86);
       --border: rgba(37,31,27,.14);
 
-      --accent:#b25b4a;       
-      --accent2:#9a7a4f;      
+      --accent:#b25b4a;
+      --accent2:#9a7a4f;
       --accentSoft: rgba(178,91,74,.12);
 
       --radius: 16px;
@@ -51,7 +50,7 @@
       padding: 32px 18px 80px;
     }
 
-    /* Top bar / mini navigation (like a CV page) */
+    /* Sticky top bar */
     .topbar{
       position: sticky;
       top: 0;
@@ -173,33 +172,7 @@
       background: linear-gradient(90deg, rgba(178,91,74,.50), rgba(154,122,79,.10));
     }
 
-   
-    .rows{
-      display:grid;
-      grid-template-columns: 180px 1fr;
-      gap: 10px 18px;
-      align-items:start;
-    }
-
-    .label{
-      font-size: 12px;
-      letter-spacing:.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding-top: 2px;
-      white-space: nowrap;
-    }
-
-    .content{
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--ink);
-    }
-
-    .content p{ margin: 0 0 10px; }
-    .content p:last-child{ margin-bottom: 0; }
-
-    /* Lists */
+    /* List cards */
     .list{
       margin: 0;
       padding: 0;
@@ -225,36 +198,20 @@
     .meta{
       color: var(--muted);
       font-size: 13px;
+      line-height: 1.5;
     }
 
-    .chips{
-      margin-top: 10px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-
-    .chip{
+    /* Tiny divider label */
+    .subhead{
+      margin: 14px 0 8px;
       font-size: 12px;
-      color: var(--ink);
-      border: 1px solid rgba(178,91,74,.22);
-      background: var(--accentSoft);
-      padding: 7px 10px;
-      border-radius: 999px;
-      letter-spacing:.02em;
-    }
-
-    /* Footer note */
-    .note{
-      margin-top: 14px;
-      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
       color: var(--muted);
     }
 
     /* Responsive */
     @media (max-width: 760px){
-      .rows{ grid-template-columns: 1fr; }
-      .label{ white-space: normal; }
       .title{ font-size: 28px; }
       .nav a{ padding: 9px 10px; }
     }
@@ -273,11 +230,12 @@
 
       <div class="nav">
         <a href="#education">Education</a>
+        <a href="#solo">Solo</a>
         <a href="#filmography">Filmography</a>
-        <a href="#installations">Installations</a>
-        <a href="#awards">Awards/Grants</a>
+        <a href="#public">Public Projects</a>
+        <a href="#awards">Awards</a>
         <a href="#residencies">Residencies</a>
-        <a href="#collaboration">Collaboration</a>
+        <a href="#teaching">Teaching</a>
         <a href="#experience">Experience</a>
       </div>
     </div>
@@ -288,269 +246,244 @@
       <h1 class="title">Curriculum Vitae</h1>
       <div class="subtitle">
         Multidisciplinary artist and filmmaker working across moving image, installation, sound, and performance.
-        
       </div>
     </div>
 
     <div class="cv">
       <div class="cv-inner">
 
-       <!-- EDUCATION -->
-<section class="section" id="education">
-  <h2>Education</h2>
+        <!-- EDUCATION -->
+        <section class="section" id="education">
+          <h2>Education</h2>
+          <ul class="list">
+            <li class="item">
+              <strong>MFA, Media Arts Production</strong>
+              <div class="meta">University at Buffalo, Center for the Arts</div>
+            </li>
+            <li class="item">
+              <strong>BA/BS, Media Study (High Distinction)</strong>
+              <div class="meta">University at Buffalo, Center for the Arts</div>
+            </li>
+            <li class="item">
+              <strong>AAS, Recreation Leadership</strong>
+              <div class="meta">Erie Community College</div>
+            </li>
+          </ul>
+        </section>
 
-  <div class="rows">
-    <div class="label">MFA</div>
-    <div class="content">
-      <div class="item">
-        <strong>Master of Fine Arts in Media Arts Production</strong>
-        <div class="meta">University at Buffalo, Center for the Arts</div>
-        <div class="chips">
-          <span class="chip">Art in The Open — Coordinator</span>
-          <span class="chip">Installation: The Land Gives Until It No Longer Can</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="label">BA/BS</div>
-    <div class="content">
-      <div class="item">
-        <strong>Bachelors of Arts and Science in Media Study</strong>
-        <div class="meta">University at Buffalo, Center for the Arts — graduated with high distinction</div>
-        <div class="chips">
-          <span class="chip">Art in The Open — Committee Member</span>
-          <span class="chip">Director/Advisor — student class film project</span>
-          <span class="chip">Videographer — Buffalo International Film Festival</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="label">AAS</div>
-    <div class="content">
-      <div class="item">
-        <strong>Associates of Arts and Sciences in Recreation Leadership</strong>
-        <div class="meta">Erie Community College</div>
-        <div class="chips">
-          <span class="chip">Member of Recreation Club</span>
-          <span class="chip">Participated in Earth Day to clean, recycle, and beautify the college campus</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+        <!-- SOLO INSTALLATIONS / EXHIBITIONS -->
+        <section class="section" id="solo">
+          <h2>Solo Installations / Exhibitions</h2>
+          <ul class="list">
+            <li class="item">
+              <strong>Fueling Change</strong>
+              <div class="meta">Buffalo Arts Studio, Buffalo, NY (2024)</div>
+            </li>
+            <li class="item">
+              <strong>Untitled (Oil Drum Installation)</strong>
+              <div class="meta">NYSSSA at Fredonia University, Fredonia, NY (2024)</div>
+            </li>
+            <li class="item">
+              <strong>Traces of Displacement</strong>
+              <div class="meta">BAM Art Gallery, Buffalo, NY (2023)</div>
+            </li>
+            <li class="item">
+              <strong>Carrying Weight, Carrying the Identity</strong>
+              <div class="meta">International Institute of Buffalo, Buffalo, NY (2023)</div>
+            </li>
+            <li class="item">
+              <strong>Hang in There</strong>
+              <div class="meta">CEPA Gallery, Buffalo, NY (2022)</div>
+            </li>
+            <li class="item">
+              <strong>The Land Gives Until It No Longer Can</strong>
+              <div class="meta">University at Buffalo (2022)</div>
+            </li>
+            <li class="item">
+              <strong>Home is Where the Art Is</strong>
+              <div class="meta">Buffalo Center for Arts and Technology (2018)</div>
+            </li>
+          </ul>
+        </section>
 
         <!-- FILMOGRAPHY -->
         <section class="section" id="filmography">
           <h2>Filmography</h2>
 
-          <div class="rows">
-            <div class="label">Feature</div>
-            <div class="content">
-              <ul class="list">
-                <li class="item">
-                  <strong>Leave The Door Open (feature film, 2025)</strong>
-                  <div class="meta">Director / Producer / Writer / Editor — Digital</div>
-                </li>
-              </ul>
-            </div>
+          <div class="subhead">Feature Film</div>
+          <ul class="list">
+            <li class="item">
+              <strong>Leave The Door Open (Feature, 2025)</strong>
+              <div class="meta">Director / Producer / Writer / Editor</div>
+            </li>
+          </ul>
 
-            <div class="label">Short Films</div>
-            <div class="content">
-              <ul class="list">
-                <li class="item">
-                  <strong>The Places I Know (short film, 2022) — 8 min</strong>
-                  <div class="meta">Director — Digital</div>
-                </li>
-                <li class="item">
-                  <strong>Time to Leave (short film, 2020) — 15 min</strong>
-                  <div class="meta">Director — Digital</div>
-                </li>
-                <li class="item">
-                  <strong>Good Shot (short film, 2020) — 5 min</strong>
-                  <div class="meta">Director — Digital</div>
-                </li>
-                <li class="item">
-                  <strong>This Mutt (short film, 2019) — 6 min</strong>
-                  <div class="meta">Director — Digital</div>
-                </li>
-              </ul>
-            </div>
+          <div class="subhead">Short Films</div>
+          <ul class="list">
+            <li class="item">
+              <strong>The Places I Know (2022, 8 min)</strong>
+              <div class="meta">Director</div>
+            </li>
+            <li class="item">
+              <strong>Time to Leave (2020, 15 min)</strong>
+              <div class="meta">Director</div>
+            </li>
+            <li class="item">
+              <strong>Good Shot (2020, 5 min)</strong>
+              <div class="meta">Director</div>
+            </li>
+            <li class="item">
+              <strong>This Mutt (2019, 6 min)</strong>
+              <div class="meta">Director</div>
+            </li>
+          </ul>
 
-            <div class="label">Co-Directed</div>
-            <div class="content">
-              <ul class="list">
-                <li class="item">
-                  <strong>A Long Long Now (2019) — 30 min</strong>
-                  <div class="meta">Buffalo Youth Media Institute — Co-Director</div>
-                </li>
-                <li class="item">
-                  <strong>Hands as Far as The Eyes Can See (2018) — 27 min</strong>
-                  <div class="meta">Buffalo Youth Media Institute — Co-Director</div>
-                </li>
-                <li class="item">
-                  <strong>Civic Heart (2017) — 19 min</strong>
-                  <div class="meta">Buffalo Youth Media Institute — Co-Director</div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="note">
-           
+          <div class="subhead">Collaborative Film Projects</div>
+          <ul class="list">
+            <li class="item">
+              <strong>A Long Long Now (2019, 30 min)</strong>
+              <div class="meta">Buffalo Youth Media Institute — Co-Director</div>
+            </li>
+            <li class="item">
+              <strong>Hands as Far as The Eyes Can See (2018, 27 min)</strong>
+              <div class="meta">Buffalo Youth Media Institute — Co-Director</div>
+            </li>
+            <li class="item">
+              <strong>Civic Heart (2017, 19 min)</strong>
+              <div class="meta">Buffalo Youth Media Institute — Co-Director</div>
+            </li>
+          </ul>
         </section>
 
-        <!-- INSTALLATIONS -->
-        <section class="section" id="installations">
-          <h2>Installations</h2>
-
-          <div class="rows">
-            <div class="label">Selected</div>
-            <div class="content">
-              <ul class="list">
-                <li class="item">
-                  <strong>Fueling Change — Buffalo Arts Studio (2024)</strong>
-                  <div class="meta">Multimedia installation exploring the Niger Delta’s oil crisis</div>
-                </li>
-                <li class="item">
-                  <strong>Untitled — NYSSSA at Fredonia University (2024)</strong>
-                  <div class="meta">Oil drum installation with projection + sound emerging from the drum</div>
-                </li>
-                <li class="item">
-                  <strong>Traces of Displacement — BAM Art Gallery (2023)</strong>
-                  <div class="meta">Single oil drum + sound installation</div>
-                </li>
-                <li class="item">
-                  <strong>Carrying Weight, Carrying the Identity — International Institute of Buffalo (2023)</strong>
-                  <div class="meta">Performance involving carrying a 16-gallon oil drum for an extended duration</div>
-                </li>
-                <li class="item">
-                  <strong>Hang in There — CEPA Gallery (2022)</strong>
-                  <div class="meta">Interactive multimedia exhibit exploring America’s history of racism</div>
-                </li>
-                <li class="item">
-                  <strong>The Land Gives Until It No Longer Can — University at Buffalo (2022)</strong>
-                  <div class="meta">Installation illuminating the environmental devastation of oil extraction in Ogoni land</div>
-                </li>
-                <li class="item">
-                  <strong>Home is Where the Art Is — Buffalo Center for Arts and Technology (2018)</strong>
-                  <div class="meta">Immersive installation exploring art + technology</div>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <!-- PUBLIC / SITE-SPECIFIC PROJECTS -->
+        <section class="section" id="public">
+          <h2>Public / Site-Specific Projects</h2>
+          <ul class="list">
+            <li class="item">
+              <strong>Bridging Acts: A Dialogue Between Motion and Media (2026)</strong>
+              <div class="meta">Creator / Director / Curator — Interdisciplinary performance</div>
+            </li>
+            <li class="item">
+              <strong>Buffalo ReFUSE — Multi-Channel Video Installation (2025)</strong>
+              <div class="meta">Collaborative project curated by Michael Chernoff</div>
+            </li>
+          </ul>
         </section>
 
         <!-- AWARDS / GRANTS -->
         <section class="section" id="awards">
           <h2>Awards / Grants</h2>
-
-          <div class="rows">
-            <div class="label">Support</div>
-            <div class="content">
-              <ul class="list">
-                <li class="item">
-                  <strong>New York State Council on the Arts (NYSCA) Grant — 2024</strong>
-                  <div class="meta">Support for projects and production</div>
-                </li>
-                <li class="item">
-                  <strong>New York State Council on the Arts (NYSCA) Grant — 2026</strong>
-                  <div class="meta">Support for Bridging Acts and related programming</div>
-                </li>
-                <li class="item">
-                  <strong>Gregory Capaso Award</strong>
-                  <div class="meta">Recognition for artistic excellence</div>
-                </li>
-                <li class="item">
-                  <strong>Covid-19 Grant — 2020</strong>
-                  <div class="meta">Emergency / relief support</div>
-                </li>
-                <li class="item">
-                  <strong>Outstanding Graduate Film — Time to Leave</strong>
-                  <div class="meta">University at Buffalo</div>
-                </li>
-                 <li class="item">
-                  <strong>Fulbright Scholarship Honoree — 2024</strong>
-                  <div class="meta">University at Buffalo's Office of Academic Excellence</div>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <ul class="list">
+            <li class="item">
+              <strong>New York State Council on the Arts (NYSCA) Grant (2026)</strong>
+              <div class="meta">Support for <em>Bridging Acts</em></div>
+            </li>
+            <li class="item">
+              <strong>New York State Council on the Arts (NYSCA) Grant (2024)</strong>
+              <div class="meta">Project support</div>
+            </li>
+            <li class="item">
+              <strong>Gregory Capaso Award</strong>
+              <div class="meta">Recognition for artistic excellence</div>
+            </li>
+            <li class="item">
+              <strong>Covid-19 Emergency Relief Grant (2020)</strong>
+              <div class="meta">Emergency / relief support</div>
+            </li>
+            <li class="item">
+              <strong>Outstanding Graduate Film — <em>Time to Leave</em></strong>
+              <div class="meta">University at Buffalo</div>
+            </li>
+            <li class="item">
+              <strong>Fulbright Scholarship Honoree (2024)</strong>
+              <div class="meta">University at Buffalo Office of Academic Excellence</div>
+            </li>
+          </ul>
         </section>
 
-        <!-- RESIDENCIES -->
+        <!-- RESIDENCIES / Fellowships-->
         <section class="section" id="residencies">
-          <h2>Residencies</h2>
-
-          <div class="rows">
-            <div class="label">Selected</div>
-            <div class="content">
-              <ul class="list">
-                <li class="item">
-                  <strong>Squeaky Wheel Residency (2024)</strong>
-                  <div class="meta">Buffalo, NY</div>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <h2>Residencies / Fellowships</h2>
+          <ul class="list">
+            <li class="item">
+              <strong>Post-Production Diversity Initiative (PPDI) Fellow (2025-2026)</strong>
+              <div class="meta">Buffalo State University, Buffalo, NY</div>
+            </li>
+            <li class="item">
+              <strong>Squeaky Wheel Film & Media Art Center Residency (2024)</strong>
+              <div class="meta">Buffalo, NY</div>
+            </li>
+          </ul>
         </section>
 
-        <!-- COLLABORATION -->
-        <section class="section" id="collaboration">
-          <h2>Collaboration</h2>
-
-          <div class="rows">
-            <div class="label">Projects</div>
-            <div class="content">
-              <ul class="list">
-                <li class="item">
-                  <strong>Bridging Acts: A Dialogue Between Motion and Media (2026)</strong>
-                  <div class="meta">I am the creator, director and curator of this upcoming one-day interdisciplinary performance</div>
-                </li>
-                <li class="item">
-                  <strong>Buffalo ReFUSE — Multi-Channel Video Installation (2025)</strong>
-                  <div class="meta">Collaborative project with multiple artists — curated by Michael Chernoff</div>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <!-- TEACHING -->
+        <section class="section" id="teaching">
+          <h2>Teaching / Academic Appointments</h2>
+          <ul class="list">
+            <li class="item">
+              <strong>Adjunct Professor, Villa Maria College</strong>
+              <div class="meta">Lighting for Film (DFM 201) • Editing II (DFM 231) • Directing for Film (DFM 301)</div>
+            </li>
+            <li class="item">
+              <strong>Lead Teaching Artist</strong>
+              <div class="meta">Squeaky Wheel Film & Media Art Center</div>
+            </li>
+          </ul>
         </section>
 
-        <!-- EXPERIENCE -->
+        <!-- PROFESSIONAL EXPERIENCE -->
         <section class="section" id="experience">
-          <h2>Volunteer / Internship Experience</h2>
+          <h2>Professional Experience</h2>
+          <ul class="list">
+            <li class="item">
+              <strong>Art in The Open — Coordinator</strong>
+              <div class="meta">University at Buffalo</div>
+            </li>
+            <li class="item">
+              <strong>Art in The Open — Committee Member</strong>
+              <div class="meta">University at Buffalo</div>
+            </li>
+            <li class="item">
+              <strong>Director / Advisor — Student Film Projects</strong>
+              <div class="meta">University at Buffalo</div>
+            </li>
+            <li class="item">
+              <strong>Videographer — Buffalo International Film Festival</strong>
+              <div class="meta">Buffalo, NY</div>
+            </li>
+          </ul>
 
-          <div class="rows">
-            <div class="label">Selected</div>
-            <div class="content">
-              <ul class="list">
-                <li class="item">
-                  <strong>SPCA — Canine Enrichment Volunteer</strong>
-                  <div class="meta">Buffalo, NY</div>
-                </li>
-                <li class="item">
-                  <strong>Shea’s Performing Art Center — Spotlight Committee Volunteer</strong>
-                  <div class="meta">Buffalo, NY</div>
-                </li>
-                <li class="item">
-                  <strong>Albright-Knox Art Gallery — Art Assistant Volunteer</strong>
-                  <div class="meta">Buffalo, NY</div>
-                </li>
-                <li class="item">
-                  <strong>Spectrum Sports — Video Production Intern</strong>
-                  <div class="meta">Buffalo, NY</div>
-                </li>
-                <li class="item">
-                  <strong>Squeaky Wheel Film and Media Art Center — Video Production Intern</strong>
-                  <div class="meta">Buffalo, NY</div>
-                </li>
-                <li class="item">
-                  <strong>WNED-TV Buffalo & Toronto — Pledges Volunteer</strong>
-                  <div class="meta">Buffalo, NY</div>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <div class="subhead">Board Member / Volunteer / Internship Experience</div>
+          <ul class="list">
+            <li class="item">
+              <strong>Shakespeare in Delaware Park — Board of Directors</strong>
+              <div class="meta">Buffalo, NY</div>
+            </li>
+            <li class="item">
+              <strong>SPCA — Canine Enrichment Volunteer</strong>
+              <div class="meta">Buffalo, NY</div>
+            </li>
+            <li class="item">
+              <strong>Shea’s Performing Arts Center — Spotlight Committee Volunteer</strong>
+              <div class="meta">Buffalo, NY</div>
+            </li>
+            <li class="item">
+              <strong>Albright-Knox Art Gallery — Art Assistant Volunteer</strong>
+              <div class="meta">Buffalo, NY</div>
+            </li>
+            <li class="item">
+              <strong>Spectrum Sports — Video Production Intern</strong>
+              <div class="meta">Buffalo, NY</div>
+            </li>
+            <li class="item">
+              <strong>Squeaky Wheel Film & Media Art Center — Video Production Intern</strong>
+              <div class="meta">Buffalo, NY</div>
+            </li>
+            <li class="item">
+              <strong>WNED-TV Buffalo & Toronto — Pledge Volunteer</strong>
+              <div class="meta">Buffalo, NY</div>
+            </li>
+          </ul>
         </section>
 
       </div>
@@ -558,4 +491,3 @@
   </div>
 </body>
 </html>
-
