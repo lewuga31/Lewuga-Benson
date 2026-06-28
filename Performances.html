@@ -7,21 +7,16 @@
 
   <style>
     :root{
-      
-      --bg: #f4efe9;              
-      --fg: #2a2420;              
-      --muted: #6f665f;           
-
+      --bg: #f4efe9;
+      --fg: #2a2420;
+      --muted: #6f665f;
       --panel: rgba(255,255,255,.78);
       --border: rgba(42,36,32,.14);
-
-      --accent: #b45f4d;          
-      --accent-soft: #e3b7a5;     
-
+      --accent: #b45f4d;
+      --accent-soft: #e3b7a5;
       --radius: 14px;
     }
 
-    
     *, *::before, *::after { box-sizing: border-box; }
 
     body{
@@ -29,38 +24,33 @@
       color: var(--fg);
       font-family: Arial, sans-serif;
       min-height:100vh;
-
       background:
         radial-gradient(1200px 800px at 20% 10%, #f6e7dd 0%, transparent 55%),
         radial-gradient(900px 600px at 80% 20%, #eadfd6 0%, transparent 60%),
         linear-gradient(to bottom, #f4efe9 0%, #ede5dc 100%);
     }
 
-    /* ===== Page wrapper ===== */
     .content{
       max-width: 1100px;
       margin: 0 auto;
-      padding: 42px 24px 90px;  
+      padding: 42px 24px 90px;
     }
 
-   
     .page-title{
       margin: 0 0 22px;
       font-size: 28px;
       letter-spacing: .06em;
       text-transform: uppercase;
-      text-align: center;        
+      text-align: center;
     }
 
-    /* ===== Project list container (centers the card stack) ===== */
     .project-list{
-      max-width: 980px;         
-      margin: 0 auto;           
+      max-width: 980px;
+      margin: 0 auto;
       display: grid;
       gap: 16px;
     }
 
-    /* ===== Project “box” ===== */
     .project-card{
       width: 100%;
       border: 1px solid var(--border);
@@ -75,7 +65,7 @@
       border: 0;
       background: transparent;
       cursor: pointer;
-      padding: 18px 18px;
+      padding: 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -83,9 +73,7 @@
       text-align: left;
     }
 
-    .project-toggle:hover{
-      background: rgba(255,255,255,.86);
-    }
+    .project-toggle:hover{ background: rgba(255,255,255,.86); }
 
     .project-name{
       font-size: 18px;
@@ -119,11 +107,8 @@
       font-size: 16px;
     }
 
-    .project-card.is-open .project-chev{
-      transform: rotate(180deg);
-    }
+    .project-card.is-open .project-chev{ transform: rotate(180deg); }
 
-    /* ===== Dropdown panel (hidden until click) ===== */
     .project-panel{
       max-height: 0px;
       overflow: hidden;
@@ -136,7 +121,6 @@
       background: rgba(255,255,255,.55);
     }
 
-    /* ===== Inner content styles (Bridging Acts details) ===== */
     .status{
       display:flex;
       gap:10px;
@@ -155,11 +139,13 @@
       text-transform: uppercase;
       box-shadow: 0 8px 22px rgba(42,36,32,.06);
     }
+
     .pill strong{ font-weight: 700; }
 
-    .pill.is-live{
-      background: linear-gradient(to right, var(--accent-soft), #f2d1c2);
-      border-color: rgba(180,95,77,.35);
+    .pill.is-archived{
+      background: rgba(255,255,255,.90);
+      border-color: rgba(180,95,77,.45);
+      color: var(--accent);
     }
 
     .titleblock{
@@ -194,6 +180,7 @@
       color: var(--muted);
       font-size: 13px;
     }
+
     .credits span{
       border: 1px solid rgba(42,36,32,.10);
       background: rgba(255,255,255,.86);
@@ -201,7 +188,6 @@
       border-radius: 999px;
     }
 
-    /* ===== Accordion inside dropdown ===== */
     .accordion{
       margin-top: 14px;
       display:grid;
@@ -222,7 +208,7 @@
       border:0;
       background: transparent;
       color: var(--fg);
-      padding: 14px 14px;
+      padding: 14px;
       cursor:pointer;
       display:flex;
       align-items:center;
@@ -233,15 +219,14 @@
       text-transform: uppercase;
     }
 
-    .acc-btn:hover{
-      background: rgba(255,255,255,.75);
-    }
+    .acc-btn:hover{ background: rgba(255,255,255,.75); }
 
     .acc-btn .left{
       display:flex;
       flex-direction: column;
       gap: 4px;
     }
+
     .acc-btn .hint{
       text-transform:none;
       letter-spacing: 0;
@@ -259,15 +244,12 @@
       justify-content:center;
       flex: 0 0 auto;
       background: rgba(255,255,255,.80);
-      transform: rotate(0deg);
       transition: transform 250ms ease;
       box-shadow: 0 8px 18px rgba(42,36,32,.08);
       font-size: 16px;
     }
 
-    .acc-item.is-open .chev{
-      transform: rotate(180deg);
-    }
+    .acc-item.is-open .chev{ transform: rotate(180deg); }
 
     .acc-panel{
       max-height: 0px;
@@ -341,13 +323,12 @@
 
     <section class="project-list">
 
-      <!-- Project 1: Bridging Acts (dropdown) -->
       <div class="project-card" id="bridgingActsCard">
         <button class="project-toggle" type="button" aria-expanded="false">
           <div>
             <p class="project-name">Bridging Acts: A Dialogue Between Motion and Media</p>
             <p class="project-sub">
-              One-day interdisciplinary performance (in development). Click to view concept, artists, timeline, and updates.
+              Archived interdisciplinary performance project. Click to view concept, artists, original timeline, and project update.
             </p>
           </div>
           <div class="project-chev">⌄</div>
@@ -357,24 +338,25 @@
           <div class="project-inner">
 
             <div class="status">
-              <div class="pill"><strong>Status:</strong> In development</div>
-              <div class="pill is-live"><strong>Target:</strong> Saturday, July 25, 2026</div>
+              <div class="pill is-archived"><strong>Status:</strong> Project cancelled / archived</div>
+              <div class="pill"><strong>Originally scheduled:</strong> Saturday, July 25, 2026</div>
               <div class="pill"><strong>Location:</strong> Buffalo, NY</div>
             </div>
 
             <div class="titleblock">
               <h2>Bridging Acts: A Dialogue Between Motion and Media</h2>
               <p class="subtitle">
-                A one-day interdisciplinary performance directed by Léwuga Tata Benson that explores the tension
-                and harmony between the human body and digital mediation through a two-part structure:
-                live performance (Act I) and a rapid, edited “afterlife” (Act II).
+                Originally conceived as a one-day interdisciplinary performance directed by Léwuga Tata Benson, this project
+                explored the tension and harmony between the human body and digital mediation through a two-part structure:
+                live performance (Act I) and a rapid, edited “afterlife” (Act II). The project has been cancelled for Summer 2026
+                and this page remains as an archive of its development, conceptual framework, and planned collaborators.
               </p>
 
               <div class="credits">
                 <span>Director / Curator: Léwuga Tata Benson</span>
                 <span>Performer: Alexandra Light (Ballerina)</span>
                 <span>Media Artist: Clayton Colin</span>
-                <span>Funding: NYSCA</span>
+                <span>Development Support: NYSCA</span>
               </div>
             </div>
 
@@ -390,11 +372,13 @@
                 </button>
                 <div class="acc-panel" role="region">
                   <div class="acc-inner">
-                    Bridging Acts is an extension of my interdisciplinary practice—sound, projection, and immersive staging—shifted into performance:
-                    the body becomes the central “artifact,” and mediation becomes visible in real time. The work foregrounds presence vs. translation:
+                    Bridging Acts was developed as an extension of my interdisciplinary practice—sound, projection, and immersive staging—shifted into performance:
+                    the body became the central “artifact,” and mediation became visible in real time. The work foregrounded presence vs. translation:
                     what happens when motion is captured, framed, and transformed into an image with its own agency.
                     <div class="note">
-                      This page is designed as a living container. As dates, rehearsals, and venues are confirmed, I will update these sections.
+                      Project Update (June 2026): Due to a combination of funding shortfalls, logistical challenges, and scheduling constraints,
+                      Bridging Acts will not move forward in its originally proposed form for Summer 2026. This page remains online as an archive
+                      of the project’s development and conceptual framework.
                     </div>
                   </div>
                 </div>
@@ -404,19 +388,19 @@
                 <button class="acc-btn" type="button" aria-expanded="false">
                   <div class="left">
                     <div>Performance Structure</div>
-                    <div class="hint">Act I → Intermission → Act II (and what the audience experiences)</div>
+                    <div class="hint">Act I → Intermission → Act II</div>
                   </div>
                   <div class="chev">⌄</div>
                 </button>
                 <div class="acc-panel" role="region">
                   <div class="acc-inner">
-                    The work is built as a two-act system:
+                    The work was built as a two-act system:
                     <ul>
-                      <li><strong>Act I:</strong> Live choreography unfolds alongside real-time filming, making the act of watching (and being watched) part of the event.</li>
+                      <li><strong>Act I:</strong> Live choreography unfolds alongside real-time filming, making the act of watching and being watched part of the event.</li>
                       <li><strong>Intermission:</strong> The media artist rapidly edits captured footage into a re-interpretation, not a literal replay.</li>
                       <li><strong>Act II:</strong> The edited video is presented as projection—an “afterlife” of the body rendered through light, memory, and mediation.</li>
                     </ul>
-                    This structure is integral to the project’s meaning: translation becomes the narrative engine.
+                    This structure was integral to the project’s meaning: translation becomes the narrative engine.
                   </div>
                 </div>
               </div>
@@ -431,7 +415,7 @@
                 </button>
                 <div class="acc-panel" role="region">
                   <div class="acc-inner">
-                    The staging emphasizes surveillance, authorship, and vulnerability:
+                    The planned staging emphasized surveillance, authorship, and vulnerability:
                     <div class="grid-2">
                       <div class="mini">
                         <h4>Act I Setup</h4>
@@ -456,7 +440,7 @@
                 <button class="acc-btn" type="button" aria-expanded="false">
                   <div class="left">
                     <div>Artists</div>
-                    <div class="hint">Alexandra Light (ballerina) + Clayton Colin (media artist)</div>
+                    <div class="hint">Alexandra Light + Clayton Colin</div>
                   </div>
                   <div class="chev">⌄</div>
                 </button>
@@ -470,7 +454,7 @@
                       </div>
                       <div class="mini">
                         <h4>Clayton Colin</h4>
-                        Video editor/animator with extensive post-production experience (Premiere, After Effects, Blender),
+                        Video editor/animator with extensive post-production experience in Premiere, After Effects, and Blender,
                         supporting the core premise: rapid transformation of live footage into a mediated “echo.”
                       </div>
                     </div>
@@ -481,20 +465,20 @@
               <div class="acc-item">
                 <button class="acc-btn" type="button" aria-expanded="false">
                   <div class="left">
-                    <div>Timeline</div>
-                    <div class="hint">Planned windows (to be refined as confirmations happen)</div>
+                    <div>Original Timeline</div>
+                    <div class="hint">Archived production schedule prior to cancellation</div>
                   </div>
                   <div class="chev">⌄</div>
                 </button>
                 <div class="acc-panel" role="region">
                   <div class="acc-inner">
                     <ul>
-                      <li><strong>Rehearsals:</strong> July 6-21, 2026</li>
-                      <li><strong>Artist Talk:</strong> July 22, 2026 at Hallwalls Contemporary Arts Center / July 23, 2026 at Buffalo AKG Art Museum</li>
-                      <li><strong>One-day performance + reception:</strong> Saturday, July 25, 2026</li>
+                      <li><strong>Planned rehearsals:</strong> July 6–21, 2026</li>
+                      <li><strong>Planned artist talks:</strong> July 22, 2026 at Hallwalls Contemporary Arts Center / July 23, 2026 at Buffalo AKG Art Museum</li>
+                      <li><strong>Planned one-day performance + reception:</strong> Saturday, July 25, 2026</li>
                     </ul>
                     <div class="note">
-                      *When the venue is confirmed, I will replace “windows” with exact dates + add RSVP/ticket links.
+                      The project was cancelled prior to production and will not take place on the dates listed above.
                     </div>
                   </div>
                 </div>
@@ -504,17 +488,20 @@
                 <button class="acc-btn" type="button" aria-expanded="false">
                   <div class="left">
                     <div>Venue</div>
-                    <div class="hint">Why this space fits the staging?</div>
+                    <div class="hint">Planned performance space</div>
                   </div>
                   <div class="chev">⌄</div>
                 </button>
                 <div class="acc-panel" role="region">
                   <div class="acc-inner">
-                    Current venue:
+                    Planned venue:
                     <ul>
-                      <li><strong>UB Center for the Arts (Black Box)</strong> — ideal for intimate, high-contrast staging and audience implication.</li>
+                      <li><strong>UB Center for the Arts Black Box</strong> — selected for its potential to support intimate, high-contrast staging and audience implication.</li>
                     </ul>
-                    The performance is conceived for a layout that implicates the audience as witnesses from multiple angles.
+                    The performance was conceived for a layout that implicated the audience as witnesses from multiple angles.
+                    <div class="note">
+                      Venue discussions were underway prior to the cancellation of the project.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -529,8 +516,8 @@
                 </button>
                 <div class="acc-panel" role="region">
                   <div class="acc-inner">
-                    The project includes documentation that reinforces the theme of mediated visibility:
-                    event photography + video capture (including audience reaction), and an edited output that becomes
+                    The project was planned to include documentation that reinforced the theme of mediated visibility:
+                    event photography, video capture including audience reaction, and an edited output that would become
                     part of the project’s archive and future touring/presentations.
                   </div>
                 </div>
@@ -546,9 +533,10 @@
                 </button>
                 <div class="acc-panel" role="region">
                   <div class="acc-inner">
-                    <strong>Funded by:</strong> New York State Council on the Arts (NYSCA).
+                    <strong>Development support provided by:</strong> New York State Council on the Arts (NYSCA).
                     <div class="note">
-                      Art Services Inc., Hallwalls Contemporary Arts Center, Buffalo AKG Art Museum.
+                      This project was developed with fiscal sponsorship support from Art Services Inc. and planning support from
+                      institutional partners including Hallwalls Contemporary Arts Center and Buffalo AKG Art Museum.
                     </div>
                   </div>
                 </div>
@@ -558,7 +546,7 @@
 
             <div class="footerline">
               <div>© <span id="year"></span> Léwuga Tata Benson</div>
-              <div class="muted">Last updated: <span id="lastUpdated">February 2026</span></div>
+              <div class="muted">Last updated: <span id="lastUpdated">June 2026</span></div>
             </div>
 
           </div>
@@ -569,16 +557,15 @@
   </main>
 
   <script>
-    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // ===== Project dropdown logic =====
     const card = document.getElementById("bridgingActsCard");
     const btn = card.querySelector(".project-toggle");
     const panel = card.querySelector(".project-panel");
 
     btn.addEventListener("click", () => {
       const open = card.classList.contains("is-open");
+
       if (open) {
         card.classList.remove("is-open");
         btn.setAttribute("aria-expanded", "false");
@@ -596,7 +583,6 @@
       }
     }
 
-    // ===== Inner accordion logic =====
     const accItems = Array.from(document.querySelectorAll("#accordion .acc-item"));
 
     accItems.forEach((item) => {
@@ -606,7 +592,6 @@
       b.addEventListener("click", () => {
         const isOpen = item.classList.contains("is-open");
 
-       
         accItems.forEach(i => {
           i.classList.remove("is-open");
           i.querySelector(".acc-btn")?.setAttribute("aria-expanded", "false");
